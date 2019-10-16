@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Screens">
+      <UniqueIdentifier>{49c0b1a1-5582-4c3d-80ff-cec826f2637a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Draw">
+      <UniqueIdentifier>{8d0b6de9-8cb7-43ce-ad59-42497d34564f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{2c7ff1ee-7aea-479f-8bba-6cdaa353fcc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{827f6d45-ed57-47e2-9e71-5ee2924d989e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Enemy">
+      <UniqueIdentifier>{deec62fd-349d-4845-a9ae-c4fc1774208d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Player">
+      <UniqueIdentifier>{7b0e404b-4b14-4284-9d0e-11df2827178f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\Draw\Draw.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Global\Global.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Src\Objects\Enemy\Enemy.cpp">
+      <Filter>Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Objects\Player\Player.cpp">
+      <Filter>Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Screens\Menu.cpp">
+      <Filter>Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Screens\GamePlay.cpp">
+      <Filter>Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Screens\Credits.cpp">
+      <Filter>Screens</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\Draw\Draw.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Global\Global.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Objects\Enemy\Enemy.h">
+      <Filter>Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Objects\Player\Player.h">
+      <Filter>Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Screens\Menu.h">
+      <Filter>Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Screens\GamePlay.h">
+      <Filter>Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Screens\Credits.h">
+      <Filter>Screens</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

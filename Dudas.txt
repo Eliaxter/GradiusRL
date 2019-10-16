@@ -1,0 +1,1 @@
+$(ProjectDir)Tools\copiar.bat "$(SolutionDir)Gradius-JulianBega\raylib.dll" "$(OutDir)"
