@@ -19,6 +19,9 @@
     <Filter Include="Objects\Player">
       <UniqueIdentifier>{7b0e404b-4b14-4284-9d0e-11df2827178f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Bullet">
+      <UniqueIdentifier>{3b17c5da-d2f1-41d9-b396-ee1ccdeae432}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Src\Draw\Draw.cpp">

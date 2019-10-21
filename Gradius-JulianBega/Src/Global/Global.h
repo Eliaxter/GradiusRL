@@ -10,6 +10,8 @@ namespace RlGraJB
 	extern int screenWidth;
 	extern int screenHeight;
 
+	extern int ActualScreen;
+
 
 	static bool gameOver = false;
 	static bool pause = false;

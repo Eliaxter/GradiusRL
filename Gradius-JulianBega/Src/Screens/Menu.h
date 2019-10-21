@@ -10,9 +10,9 @@ namespace RlGraJB
 {
 	using namespace std;
 
-	namespace Menu
-	{
-	}
+	extern bool Play;
+	extern bool Exit;
+	void UpdateMenu();
 }
 
 #endif

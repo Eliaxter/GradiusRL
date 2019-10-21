@@ -1,9 +1,8 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
-#include "raylib.h"
-
-#include "Menu.h"
+#include "Objects/Enemy/Enemy.h"
+#include "Objects/Player/Player.h"
 
 
 namespace RlGraJB
@@ -11,8 +10,8 @@ namespace RlGraJB
 	const int pointsToWin = 2;
 
 
-	void InitGame(Player &player1, Player &player2);
-	void UpdateGame(Player &player1, Player &player2);
+	void InitGame(Player &player1, Player &player2, Enemy &enemy1);
+	void UpdateGame(Player &player1, Player &player2, Enemy &enemy);
 	void UnloadGame(Player &player1, Player &player2);
 
 

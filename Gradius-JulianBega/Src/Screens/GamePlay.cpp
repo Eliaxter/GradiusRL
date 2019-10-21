@@ -1,5 +1,6 @@
 #include "GamePlay.h"
-
+#include "Objects/Enemy/Enemy.h"
+#include "Objects/Player/Player.h"
 
 #include "Global/Global.h"
 
@@ -8,13 +9,17 @@ namespace RlGraJB
 {
 
 
-	void InitGame(Player &player1, Player &player2)
+	void InitGame(Player &player1, Player &player2, Enemy &enemy1 )
 	{
 		player1 = InitPlayer(60 , screenHeight * 7 / 8, screenWidth / 10, 20); ///////////// Cambiar a statics como playerwith, etc
 
-		player2 = InitPlayer(1, 1, 80, 20); ///////////// 
+		player2 = InitPlayer(1, 1, 60, 20); ///////////// 
 		// Initialize ball
-
+		enemy1 = InitEnemy(screenWidth, GetRandomValue(0, screenHeight), 50, 20);
+		for (int i = 0; i < MaxEnemies; i++)
+		{
+			Enemies[i] = InitEnemy(GetRandomValue(screenWidth, screenWidth + screenWidth/2), GetRandomValue(0, screenHeight), 50, 20);
+		}
 		
 
 		// Initialize bricks
@@ -23,7 +28,7 @@ namespace RlGraJB
 		
 	}
 
-	void UpdateGame(Player &player1, Player &player2)
+	void UpdateGame(Player &player1, Player &player2, Enemy &enemy)
 	{
 		if (!gameOver)
 		{
@@ -31,11 +36,7 @@ namespace RlGraJB
 
 			if (!pause)
 			{
-				// Player movement logic
-				if (IsKeyDown('W')) player1.position.y -= 5;
-				if ((player1.position.y - player1.size.y / 2) <= 0) player1.position.y = player1.size.y/ 2;
-				if (IsKeyDown('S')) player1.position.y += 5;
-				if ((player1.position.y + player1.size.y / 2) >= screenHeight) player1.position.y = screenHeight - player1.size.y / 2;
+				MovePlayer(player1);
 				
 			}
 		}
@@ -43,7 +44,7 @@ namespace RlGraJB
 		{
 			if (IsKeyPressed(KEY_ENTER))
 			{
-				InitGame(player1, player2);
+				InitGame(player1, player2, enemy);
 				gameOver = false;
 			}
 		}
