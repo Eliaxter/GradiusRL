@@ -1,0 +1,5 @@
+﻿  Draw.cpp
+c:\users\administrador\desktop\gradiusrl\gradius-julianbega\src\draw\draw.cpp(18): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Gradius-JulianBega.vcxproj -> C:\Users\Administrador\Desktop\GradiusRL\Gradius-JulianBega\Exe\Debug\Gradius-JulianBega.exe
+  C:\Users\Administrador\Desktop\GradiusRL\Gradius-JulianBega\Lib\raylib-2.5.0-Win32-msvc15\bin\raylib.dll
+          1 archivo(s) copiado(s).

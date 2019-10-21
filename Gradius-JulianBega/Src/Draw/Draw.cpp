@@ -10,20 +10,13 @@ namespace RlGraJB
 	{
 		BeginDrawing();
 
-		ClearBackground(RAYWHITE);
+		ClearBackground(GREEN);
 
 		if (!gameOver)
 		{
 			// Draw player bar
 			DrawRectangle(player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y / 2, player1.size.x, player1.size.y, BLACK);
-
-			// Draw player lives
-			for (int i = 0; i < player1.life; i++) DrawRectangle(20 + 40 * i, screenHeight - 30, 35, 10, LIGHTGRAY);
-
-			// Draw ball
-
-			// Draw bricks
-			
+		
 
 			if (pause) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 		}

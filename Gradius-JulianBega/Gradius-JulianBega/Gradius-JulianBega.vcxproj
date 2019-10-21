@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\Src\Draw\Draw.cpp" />
     <ClCompile Include="..\Src\Global\Global.cpp" />
+    <ClCompile Include="..\Src\Global\Loop.cpp" />
     <ClCompile Include="..\Src\Objects\Enemy\Enemy.cpp" />
     <ClCompile Include="..\Src\Objects\Player\Player.cpp" />
     <ClCompile Include="..\Src\Screens\Credits.cpp" />
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="..\Src\Draw\Draw.h" />
     <ClInclude Include="..\Src\Global\Global.h" />
+    <ClInclude Include="..\Src\Global\Loop.h" />
     <ClInclude Include="..\Src\Objects\Enemy\Enemy.h" />
     <ClInclude Include="..\Src\Objects\Player\Player.h" />
     <ClInclude Include="..\Src\Screens\Credits.h" />
@@ -113,8 +115,7 @@
       </Command>
     </PreLinkEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy "$(SolutionDir)Lib\raylib-2.5.0-Win32-msvc15\bin" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,8 +147,7 @@
       </Command>
     </PreLinkEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy "$(SolutionDir)Lib\raylib-2.5.0-Win32-msvc15\bin" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

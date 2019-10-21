@@ -7,30 +7,10 @@
 namespace RlGraJB
 {
 
-	void StartGame()
-	{
-		InitWindow(screenWidth, screenHeight, "sample game: Gradius");
-		SetTargetFPS(60);
-		Player player1;
-		Player player2;
-		int currentScreen = 1;
-		InitGame(player1, player2); //(player1, player2, ball, currentScreen)
-
-		while (!WindowShouldClose())    // Detect window close button or ESC key
-		{
-			// Update and Draw
-			//----------------------------------------------------------------------------------
-			UpdateDrawFrame(player1, player2);
-			//----------------------------------------------------------------------------------
-		}
-		//UnloadGame();         // Unload loaded data (textures, sounds, models...)
-
-		CloseWindow();
-	}
 
 	void InitGame(Player &player1, Player &player2)
 	{
-		player1 = InitPlayer(screenWidth / 2, screenHeight * 7 / 8, screenWidth / 10, 20); ///////////// Cambiar a statics como playerwith, etc
+		player1 = InitPlayer(60 , screenHeight * 7 / 8, screenWidth / 10, 20); ///////////// Cambiar a statics como playerwith, etc
 
 		player2 = InitPlayer(1, 1, 80, 20); ///////////// 
 		// Initialize ball
@@ -52,10 +32,10 @@ namespace RlGraJB
 			if (!pause)
 			{
 				// Player movement logic
-				if (IsKeyDown(KEY_LEFT)) player1.position.x -= 5;
-				if ((player1.position.x - player1.size.x / 2) <= 0) player1.position.x = player1.size.x / 2;
-				if (IsKeyDown(KEY_RIGHT)) player1.position.x += 5;
-				if ((player1.position.x + player1.size.x / 2) >= screenWidth) player1.position.x = screenWidth - player1.size.x / 2;
+				if (IsKeyDown('W')) player1.position.y -= 5;
+				if ((player1.position.y - player1.size.y / 2) <= 0) player1.position.y = player1.size.y/ 2;
+				if (IsKeyDown('S')) player1.position.y += 5;
+				if ((player1.position.y + player1.size.y / 2) >= screenHeight) player1.position.y = screenHeight - player1.size.y / 2;
 				
 			}
 		}

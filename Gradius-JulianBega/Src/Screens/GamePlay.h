@@ -12,7 +12,6 @@ namespace RlGraJB
 
 
 	void InitGame(Player &player1, Player &player2);
-	void StartGame();
 	void UpdateGame(Player &player1, Player &player2);
 	void UnloadGame(Player &player1, Player &player2);
 
