@@ -18,6 +18,6 @@ namespace RlGraJB
 
 	Player InitPlayer(int posX, int posY, int width, int height);
 	void MovePlayer(Player &player);
-	void CheckCollisionWithEnemies();
+	void CheckCollisionWithEnemies(Player &player);
 }
 #endif

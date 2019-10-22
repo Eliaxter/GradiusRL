@@ -6,7 +6,7 @@
 
 namespace RlGraJB
 {
-	void DrawGame(Player &player1, Player &player2, Enemy &enemy)
+	void DrawGame(Player &player1)
 	{
 		BeginDrawing();
 
@@ -17,7 +17,6 @@ namespace RlGraJB
 			// Draw player bar
 			DrawRectangle(player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y / 2, player1.size.x, player1.size.y, BLACK);
 
-			DrawRectangle(enemy.position.x - enemy.size.x / 2, enemy.position.y - enemy.size.y / 2, enemy.size.x, enemy.size.y, RED);
 			for (int i = 0; i < MaxEnemies; i++)
 			{
 				DrawRectangle(Enemies[i].position.x - Enemies[i].size.x / 2, Enemies[i].position.y - Enemies[i].size.y / 2, Enemies[i].size.x, Enemies[i].size.y, RED);
@@ -31,11 +30,7 @@ namespace RlGraJB
 		EndDrawing();
 	}
 
-	void UpdateDrawFrame(Player &player1, Player &player2, Enemy &enemy)
-	{
-		UpdateGame(player1, player2, enemy);
-		DrawGame(player1, player2,enemy);
-	}
+	
 
 	void DrawMenu(bool play, bool exit)
 	{

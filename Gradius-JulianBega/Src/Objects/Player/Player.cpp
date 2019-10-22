@@ -2,7 +2,7 @@
 
 namespace RlGraJB
 {
-
+	
 	Player InitPlayer(int posX, int posY, int width, int height)
 	{
 		Player player;
@@ -21,7 +21,18 @@ namespace RlGraJB
 		if (IsKeyDown('S')) player.position.y += player.speed  * GetFrameTime();
 		if ((player.position.y + player.size.y / 2) >= screenHeight) player.position.y = screenHeight - player.size.y / 2;
 	}
-	void CheckCollisionWithEnemies()
+	void CheckCollisionWithEnemies(Player &player)
 	{
+		for (int i = 0; i < TotalEnemies; i++)
+		{
+			if (player.position.x + player.size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x/2 &&
+			   (player.position.y + player.size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 ||
+				player.position.y - player.size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2))
+			{
+				
+				
+			}
+		}
+		
 	}
 }

@@ -17,10 +17,10 @@ namespace RlGraJB
 	extern Enemy Enemies[20];
 
 	Enemy InitEnemy(int posX, int posY, int width, int height);
-	void MoveEnemy(Enemy &enemy);
-	void UpdateEnemy(Enemy &enemy);
+	void MoveEnemy();
+	void UpdateEnemy();
 	//void CheckBulletColission(Enemy &enemy);
-	void CheckOutOfScreen(Enemy &enemy);
+	void CheckOutOfScreen();
 }
 #endif
 

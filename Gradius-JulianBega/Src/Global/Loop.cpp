@@ -12,16 +12,18 @@ namespace RlGraJB
 {
 	void StartGame()
 	{
+		
 		InitWindow(screenWidth, screenHeight, "sample game: Gradius");
 		SetTargetFPS(60);
+		HideCursor();
 		Player player1;
-		Player player2;
+		
 		Enemies[MaxEnemies];
 		Enemy enemy1;
 		int currentScreen = 1;
-		InitGame(player1, player2, enemy1); 
+		InitGame(player1); 
 
-		while (ActualScreen != ENDING)    
+		while (ActualScreen != ENDING && !WindowShouldClose())    
 		{
 			switch (ActualScreen)
 			{
@@ -30,8 +32,8 @@ namespace RlGraJB
 				break;
 
 			case GAMEPLAYSCREEN:
-				UpdateDrawFrame(player1, player2, enemy1);
-				UpdateEnemy(enemy1);
+				UpdateGame(player1);
+				
 				break;
 				
 			case GAMEOVERSCREEN:

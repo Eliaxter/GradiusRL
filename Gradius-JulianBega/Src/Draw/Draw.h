@@ -6,8 +6,7 @@
 
 namespace RlGraJB
 {
-	void DrawGame(Player &player1, Player &player2, Enemy &enemy);
-	void UpdateDrawFrame(Player &player1, Player &player2, Enemy &enemy);
+	void DrawGame(Player &player1);
 	void DrawMenu(bool play, bool exit);
 }
 #endif
