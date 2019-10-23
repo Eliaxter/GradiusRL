@@ -37,8 +37,21 @@ namespace RlGraJB
 		{
 			if (Enemies[i].position.x <= 0 - Enemies[i].size.x)
 			{
-				Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x*2);
-				Enemies[i].position.y = GetRandomValue(screenHeight/6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
+				for (int j = 0; j < MaxEnemies; j++)
+				{
+					Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
+					Enemies[i].position.y = GetRandomValue(screenHeight / 6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
+					if (Enemies[i].position.x + Enemies[i].size.x / 2 >= Enemies[j].position.x - Enemies[j].size.x / 2 &&
+					   (Enemies[i].position.y + Enemies[i].size.y / 2 >= Enemies[j].position.y - Enemies[j].size.y / 2 ||
+						Enemies[i].position.y - Enemies[i].size.y / 2 <= Enemies[j].position.y + Enemies[j].size.y / 2))
+					{
+						Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
+						Enemies[i].position.y = GetRandomValue(screenHeight / 6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
+					}
+
+					
+				}
+				
 			}
 		}
 	}
