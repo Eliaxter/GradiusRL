@@ -17,9 +17,9 @@ namespace RlGraJB
 	void MovePlayer(Player &player)
 	{
 		if (IsKeyDown('W')) player.position.y -= player.speed  * GetFrameTime();
-		if ((player.position.y - player.size.y / 2) <= 0) player.position.y = player.size.y / 2;
+		if ((player.position.y - player.size.y / 2) <= 0 + screenHeight / 6) player.position.y = player.size.y / 2 + screenHeight / 6;
 		if (IsKeyDown('S')) player.position.y += player.speed  * GetFrameTime();
-		if ((player.position.y + player.size.y / 2) >= screenHeight) player.position.y = screenHeight - player.size.y / 2;
+		if ((player.position.y + player.size.y / 2) >= screenHeight - screenHeight/6) player.position.y = screenHeight - screenHeight / 6 - player.size.y / 2;
 	}
 	void CheckCollisionWithEnemies(Player &player)
 	{

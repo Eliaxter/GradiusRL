@@ -9,7 +9,7 @@ namespace RlGraJB
 	typedef enum GameScreen { MENUSCREEN, GAMEPLAYSCREEN, GAMEOVERSCREEN, CREDITSSCREEN, ENDING } GameScreen;
 	extern int screenWidth;
 	extern int screenHeight;
-
+	extern int actualBackGroundPos;
 	extern int ActualScreen;
 
 

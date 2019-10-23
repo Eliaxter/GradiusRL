@@ -2,7 +2,7 @@
 
 namespace RlGraJB
 {
-	extern const int MaxEnemies = 20;
+	extern const int MaxEnemies = 12;
 	int TotalEnemies = 10;
 	Enemy Enemies[MaxEnemies] = { 0 };
 
@@ -38,7 +38,7 @@ namespace RlGraJB
 			if (Enemies[i].position.x <= 0 - Enemies[i].size.x)
 			{
 				Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x*2);
-				Enemies[i].position.y = GetRandomValue(0 + Enemies[i].size.y, screenHeight - Enemies[i].size.y);
+				Enemies[i].position.y = GetRandomValue(screenHeight/6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
 			}
 		}
 	}

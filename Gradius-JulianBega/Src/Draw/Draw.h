@@ -7,6 +7,7 @@
 namespace RlGraJB
 {
 	void DrawGame(Player &player1);
+	void BackGroundDraw();
 	void DrawMenu(bool play, bool exit);
 }
 #endif

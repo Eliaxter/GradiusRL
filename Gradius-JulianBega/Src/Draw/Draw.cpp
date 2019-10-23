@@ -10,12 +10,13 @@ namespace RlGraJB
 	{
 		BeginDrawing();
 
-		ClearBackground(GREEN);
+		ClearBackground(BLACK);
 
 		if (!gameOver)
 		{
+			BackGroundDraw();
 			// Draw player bar
-			DrawRectangle(player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y / 2, player1.size.x, player1.size.y, BLACK);
+			DrawRectangle(player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y / 2, player1.size.x, player1.size.y, BLUE);
 
 			for (int i = 0; i < MaxEnemies; i++)
 			{
@@ -56,4 +57,25 @@ namespace RlGraJB
 		EndDrawing();
 	}
 
+	void BackGroundDraw()
+	{
+		DrawRectangle(0, 0, screenWidth, screenHeight/6, BROWN);
+		DrawRectangle(0, screenHeight - screenHeight / 6, screenWidth, screenHeight / 6, BROWN);
+		for (int i = 0; i < 30; i++)
+		{
+			if (actualBackGroundPos + (i * 75) <= -screenWidth)
+			{
+				actualBackGroundPos = 0;
+			}
+			DrawRectangle(actualBackGroundPos + (i * 75), screenHeight / 2, 50, 20, YELLOW);
+		}
+		for (int i = 0; i < 9; i++)
+		{
+
+			DrawRectangle(GetRandomValue(0, screenWidth), GetRandomValue(0, screenHeight), 3, 3, BROWN);
+		}
+		
+		
+		
+	}
 }
