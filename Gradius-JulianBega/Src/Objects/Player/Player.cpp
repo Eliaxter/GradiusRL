@@ -35,4 +35,20 @@ namespace RlGraJB
 		}
 		
 	}
+
+	void CheckPoint(Player &player)
+	{
+		for (int i = 0; i < TotalEnemies; i++)
+		{
+
+			if (player.position.x - player.size.x / 2 >= Enemies[i].position.x + Enemies[i].size.x / 2)
+			{
+				if (Enemies[i].alreadyPoint == false)
+				{
+					player.points++;
+					Enemies[i].alreadyPoint = true;
+				}
+			}
+		}
+	}
 }

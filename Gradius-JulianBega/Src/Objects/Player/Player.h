@@ -14,10 +14,12 @@ namespace RlGraJB
 		Vector2 size;
 		int life;
 		float speed = 0;
+		int points = 0;
 	};
 
 	Player InitPlayer(int posX, int posY, int width, int height);
 	void MovePlayer(Player &player);
 	void CheckCollisionWithEnemies(Player &player);
+	void CheckPoint(Player &player);
 }
 #endif

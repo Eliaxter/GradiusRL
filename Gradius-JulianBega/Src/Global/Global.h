@@ -10,6 +10,7 @@ namespace RlGraJB
 	extern int screenWidth;
 	extern int screenHeight;
 	extern int actualBackGroundPos;
+	extern int actualBackGroundPos2;
 	extern int ActualScreen;
 
 

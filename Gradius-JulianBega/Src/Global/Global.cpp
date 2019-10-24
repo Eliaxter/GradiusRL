@@ -7,6 +7,7 @@ namespace RlGraJB
 	int screenWidth = 800;
 	int ActualScreen = 0;
 	int actualBackGroundPos = 0;
+	int actualBackGroundPos2 = 0;
 	
 	
 	

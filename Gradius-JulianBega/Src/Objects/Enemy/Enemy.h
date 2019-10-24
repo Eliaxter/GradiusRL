@@ -11,6 +11,7 @@ namespace RlGraJB
 		Vector2 size;
 		bool Alive = true;
 		float Speed = 500;
+		bool alreadyPoint = false;
 	};
 	extern const int MaxEnemies;
 	extern int TotalEnemies;

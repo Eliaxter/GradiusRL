@@ -8,11 +8,11 @@
 namespace RlGraJB
 {
 	const int pointsToWin = 2;
-	const int backGroundSpeed = 800;
+	const int backGroundSpeed = 400;
 
 	void InitGame(Player &player1);
 	void UpdateGame(Player &player1);
-	void UpdateBackGround(int &backGrowndPos);
+	void UpdateBackGround(int &backGrowndPos, int InitPoint);
 	void UnloadGame();
 
 

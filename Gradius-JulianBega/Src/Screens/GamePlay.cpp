@@ -11,7 +11,7 @@ namespace RlGraJB
 
 	void InitGame(Player &player1)
 	{
-		player1 = InitPlayer(60 , screenHeight * 7 / 8, screenWidth / 10, 20); ///////////// Cambiar a statics como playerwith, etc
+		player1 = InitPlayer(60 , screenHeight * 7 / 8, screenWidth / 15, 20); ///////////// Cambiar a statics como playerwith, etc
 		
 		actualBackGroundPos = 0;
 		
@@ -39,8 +39,10 @@ namespace RlGraJB
 				DrawGame(player1);
 				MovePlayer(player1);
 				UpdateEnemy();
-				UpdateBackGround(actualBackGroundPos);
+				UpdateBackGround(actualBackGroundPos, 0);
+				UpdateBackGround(actualBackGroundPos2, screenWidth);
 				CheckCollisionWithEnemies(player1);
+				CheckPoint(player1);
 
 			}
 		}
@@ -60,10 +62,10 @@ namespace RlGraJB
 		// TODO: Unload all dynamic loaded data (textures, sounds, models...)
 	}
 
-	void UpdateBackGround(int &backGrowndPos)
+	void UpdateBackGround(int &backGrowndPos, int InitPoint)
 	{
 		backGrowndPos = backGrowndPos - backGroundSpeed * GetFrameTime();
-		BackGroundDraw();
+		BackGroundDraw(InitPoint);
 	}
 
 }
