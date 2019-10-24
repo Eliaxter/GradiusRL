@@ -25,12 +25,17 @@ namespace RlGraJB
 	{
 		for (int i = 0; i < TotalEnemies; i++)
 		{
-			if (player.position.x + player.size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x/2 &&
-			   (player.position.y + player.size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 ||
-				player.position.y - player.size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2))
+			if ( player.position.x + player.size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x/2 &&
+			   ((player.position.y + player.size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 && 
+				 player.position.y - player.size.y / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
+				(player.position.y - player.size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
+				 player.position.y + player.size.y / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2)))
 			{
-				
-				
+				if (Enemies[i].alreadyPoint == false)
+				{
+					player.points--;
+					Enemies[i].alreadyPoint = true;
+				}
 			}
 		}
 		
