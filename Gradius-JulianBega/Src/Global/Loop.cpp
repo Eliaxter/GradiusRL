@@ -18,11 +18,13 @@ namespace RlGraJB
 		HideCursor();
 		Player player1;
 		
-		Enemies[MaxEnemies];
-		Enemy enemy1;
-		int currentScreen = 1;
-		InitGame(player1); 
+		
 
+		Enemies[MaxEnemies];
+		int currentScreen = 1;
+
+		InitGame(player1); 
+	   	
 		while (ActualScreen != ENDING && !WindowShouldClose())    
 		{
 			switch (ActualScreen)
@@ -37,12 +39,15 @@ namespace RlGraJB
 				break;
 				
 			case GAMEOVERSCREEN:
+
 				break;
 
 			case CREDITSSCREEN:
+
 				break;
 			
 			case ENDING:
+			
 				break;
 
 			default:

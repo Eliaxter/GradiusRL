@@ -3,6 +3,7 @@
 #include "Objects/Player/Player.h"
 #include "Draw/Draw.h"
 #include "Global/Global.h"
+#include "Animation/Animations.h"
 
 
 namespace RlGraJB 
@@ -32,10 +33,6 @@ namespace RlGraJB
 	{
 		if (!gameOver)
 		{
-			if (IsKeyPressed('P')) pause = !pause;
-
-			if (!pause)
-			{
 				DrawGame(player1);
 				MovePlayer(player1);
 				UpdateEnemy();
@@ -43,8 +40,11 @@ namespace RlGraJB
 				UpdateBackGround(actualBackGroundPos2, screenWidth);
 				CheckCollisionWithEnemies(player1);
 				CheckPoint(player1);
-
-			}
+				
+				if (IsKeyReleased('O'))
+				{
+					ActualScreen = CREDITSSCREEN;
+				}
 		}
 		else
 		{
@@ -59,6 +59,7 @@ namespace RlGraJB
 
 	void UnloadGame()
 	{
+		
 		// TODO: Unload all dynamic loaded data (textures, sounds, models...)
 	}
 

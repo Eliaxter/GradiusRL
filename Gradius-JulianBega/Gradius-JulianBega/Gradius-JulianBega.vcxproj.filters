@@ -22,6 +22,9 @@
     <Filter Include="Objects\Bullet">
       <UniqueIdentifier>{3b17c5da-d2f1-41d9-b396-ee1ccdeae432}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Animations">
+      <UniqueIdentifier>{00fa1dfc-887e-48c1-bf30-16b5ba0d9bdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Src\Draw\Draw.cpp">
@@ -49,6 +52,9 @@
     <ClCompile Include="..\Src\Global\Loop.cpp">
       <Filter>Global</Filter>
     </ClCompile>
+    <ClCompile Include="..\Src\Animation\Animations.cpp">
+      <Filter>Animations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Src\Draw\Draw.h">
@@ -74,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="..\Src\Global\Loop.h">
       <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Animation\Animations.h">
+      <Filter>Animations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

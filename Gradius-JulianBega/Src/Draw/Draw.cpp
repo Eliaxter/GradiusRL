@@ -3,6 +3,7 @@
 #include "Screens/Menu.h"
 #include "Screens/GamePlay.h"
 #include "Global/Global.h"
+#include "Animation/Animations.h"
 
 namespace RlGraJB
 {
@@ -78,5 +79,18 @@ namespace RlGraJB
 		
 		
 		
+	}
+
+	void DrawTank(int framesCounter, int framesSpeed, int currentFrame, Rectangle frameRec, Texture2D tank)
+	{
+		BeginDrawing();
+
+
+		DrawTexture(tank, 15, 40, WHITE);
+		DrawTextureRec(tank, frameRec, { 35.0f, 28.0f }, WHITE);  // Draw part of the texture
+
+		
+		EndDrawing();
+
 	}
 }
