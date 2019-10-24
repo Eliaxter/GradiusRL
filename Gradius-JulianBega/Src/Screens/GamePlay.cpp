@@ -18,7 +18,7 @@ namespace RlGraJB
 		
 		for (int i = 0; i < MaxEnemies; i++)
 		{
-			Enemies[i] = InitEnemy(GetRandomValue(screenWidth, screenWidth + screenWidth/2), GetRandomValue(screenHeight/6, screenHeight - screenHeight / 6), 50, 20);
+			Enemies[i] = InitEnemy(GetRandomValue(screenWidth, screenWidth * 2), GetRandomValue(screenHeight/6, screenHeight - screenHeight / 6), 50, 20);
 		}
 		
 

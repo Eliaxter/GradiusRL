@@ -15,7 +15,7 @@ namespace RlGraJB
 	};
 	extern const int MaxEnemies;
 	extern int TotalEnemies;
-	extern Enemy Enemies[12];
+	extern Enemy Enemies[20];
 
 	Enemy InitEnemy(int posX, int posY, int width, int height);
 	void MoveEnemy();

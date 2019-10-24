@@ -62,7 +62,7 @@ namespace RlGraJB
 	{
 		DrawRectangle(0, 0, screenWidth, screenHeight/6, BROWN);
 		DrawRectangle(0, screenHeight - screenHeight / 6, screenWidth, screenHeight / 6, BROWN);
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < TotalEnemies; i++)
 		{
 			if (actualBackGroundPos + (i * 75) <= -screenWidth)
 			{

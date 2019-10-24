@@ -2,8 +2,8 @@
 
 namespace RlGraJB
 {
-	extern const int MaxEnemies = 12;
-	int TotalEnemies = 10;
+	extern const int MaxEnemies = 20;
+	int TotalEnemies = 20;
 	Enemy Enemies[MaxEnemies] = { 0 };
 
 	Enemy InitEnemy(int posX, int posY, int width, int height)
@@ -39,9 +39,19 @@ namespace RlGraJB
 			{
 				for (int j = 0; j < MaxEnemies; j++)
 				{
-					Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
-					Enemies[i].position.y = GetRandomValue(screenHeight / 6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
-					Enemies[i].alreadyPoint = false;
+					while ((Enemies[j].position.x + Enemies[j].size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x / 2 &&
+						  ((Enemies[j].position.y + Enemies[j].size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 &&
+						    Enemies[j].position.y - Enemies[j].size.y / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
+						   (Enemies[j].position.y - Enemies[j].size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
+						    Enemies[j].position.y + Enemies[j].size.y / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2))) &&
+							j != i
+						)
+					{
+						Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
+						Enemies[i].position.y = GetRandomValue(screenHeight / 6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
+						Enemies[i].alreadyPoint = false;
+					}
+					
 					
 				}
 				
