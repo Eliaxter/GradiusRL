@@ -16,6 +16,7 @@ namespace RlGraJB
 
 	static bool gameOver = false;
 	static bool pause = false;
+	extern bool animationTemporal;
 
 }
 

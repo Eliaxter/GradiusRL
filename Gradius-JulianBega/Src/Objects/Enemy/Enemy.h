@@ -12,6 +12,7 @@ namespace RlGraJB
 		bool Alive = true;
 		float Speed = 500;
 		bool alreadyPoint = false;
+		Color EnColor = RED;
 	};
 	extern const int MaxEnemies;
 	extern int TotalEnemies;

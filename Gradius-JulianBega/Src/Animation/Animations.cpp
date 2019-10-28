@@ -6,9 +6,9 @@
 
 namespace RlGraJB
 {
-	void TankAnimationUpdate(int framesCounter, int framesSpeed, int currentFrame, Rectangle frameRec, Texture2D tank)
+	void TankAnimationUpdate(Texture2D tank)
 	{
-		DrawTank(framesCounter, framesSpeed, currentFrame, frameRec, tank);
+		DrawTank(tank);
 	}
 
 }

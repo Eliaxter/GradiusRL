@@ -7,23 +7,33 @@
 
 namespace RlGraJB
 {
-	void DrawGame(Player &player1)
+	void DrawGame(Player &player1, Texture2D tank, Texture2D tank2)
 	{
 		BeginDrawing();
 
-		ClearBackground(BLACK);
+		ClearBackground(GRAY);
 
 		if (!gameOver)
 		{
 			
 			// Draw player bar
-			DrawRectangle(player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y / 2, player1.size.x, player1.size.y, BLUE);
-
+			DrawRectangle(player1.position.x, player1.position.y + player1.size.y/(2/5) , player1.size.x, player1.size.y, BLUE);
+			
 			for (int i = 0; i < MaxEnemies; i++)
 			{
-				DrawRectangle(Enemies[i].position.x - Enemies[i].size.x / 2, Enemies[i].position.y - Enemies[i].size.y / 2, Enemies[i].size.x, Enemies[i].size.y, RED);
+				DrawRectangle(Enemies[i].position.x - Enemies[i].size.x / 2, Enemies[i].position.y - Enemies[i].size.y / 2, Enemies[i].size.x, Enemies[i].size.y, Enemies[i].EnColor);
 			}
-		
+			if (animationTemporal == false)
+			{
+				DrawTexture(tank, player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y, WHITE);
+				animationTemporal = true;
+			}
+			if (animationTemporal == true)
+			{
+				DrawTexture(tank2, player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y, WHITE);
+				animationTemporal = false;
+			}
+			
 			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, GRAY);
 			
 			if (pause) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
@@ -81,16 +91,5 @@ namespace RlGraJB
 		
 	}
 
-	void DrawTank(int framesCounter, int framesSpeed, int currentFrame, Rectangle frameRec, Texture2D tank)
-	{
-		BeginDrawing();
 
-
-		DrawTexture(tank, 15, 40, WHITE);
-		DrawTextureRec(tank, frameRec, { 35.0f, 28.0f }, WHITE);  // Draw part of the texture
-
-		
-		EndDrawing();
-
-	}
 }

@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Src\Animation\Animations.cpp" />
     <ClCompile Include="..\Src\Draw\Draw.cpp" />
     <ClCompile Include="..\Src\Global\Global.cpp" />
     <ClCompile Include="..\Src\Global\Loop.cpp" />
@@ -31,7 +30,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Src\Animation\Animations.h" />
     <ClInclude Include="..\Src\Draw\Draw.h" />
     <ClInclude Include="..\Src\Global\Global.h" />
     <ClInclude Include="..\Src\Global\Loop.h" />

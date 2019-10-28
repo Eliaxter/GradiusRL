@@ -17,13 +17,17 @@ namespace RlGraJB
 		SetTargetFPS(60);
 		HideCursor();
 		Player player1;
-		
-		
-
 		Enemies[MaxEnemies];
 		int currentScreen = 1;
+		InitGame(player1);
 
-		InitGame(player1); 
+		Image tank = LoadImage("../Res/Assets/Tank1.png");
+		ImageResize(&tank, 96 , 61);
+		Texture2D tanke = LoadTextureFromImage(tank);
+		Image tank2 = LoadImage("../Res/Assets/Tank2.png");
+		ImageResize(&tank2, 96, 61);
+		Texture2D tanke2 = LoadTextureFromImage(tank2);
+ 
 	   	
 		while (ActualScreen != ENDING && !WindowShouldClose())    
 		{
@@ -34,7 +38,7 @@ namespace RlGraJB
 				break;
 
 			case GAMEPLAYSCREEN:
-				UpdateGame(player1);
+				UpdateGame(player1, tanke, tanke2);
 				
 				break;
 				

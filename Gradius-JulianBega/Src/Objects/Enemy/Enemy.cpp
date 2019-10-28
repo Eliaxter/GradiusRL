@@ -13,6 +13,7 @@ namespace RlGraJB
 		enemy.position.y = posY;
 		enemy.size.x = width;
 		enemy.size.y = height;
+		enemy.EnColor = RED;
 		return enemy;
 	}
 
@@ -50,6 +51,7 @@ namespace RlGraJB
 						Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
 						Enemies[i].position.y = GetRandomValue(screenHeight / 6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
 						Enemies[i].alreadyPoint = false;
+						Enemies[i].EnColor = RED;
 					}
 					
 					

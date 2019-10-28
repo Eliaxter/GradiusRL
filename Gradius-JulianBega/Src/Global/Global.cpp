@@ -9,6 +9,5 @@ namespace RlGraJB
 	int actualBackGroundPos = 0;
 	int actualBackGroundPos2 = 0;
 	
-	
-	
+	bool animationTemporal = false;
 }

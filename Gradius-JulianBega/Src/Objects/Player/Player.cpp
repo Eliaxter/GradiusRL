@@ -35,6 +35,7 @@ namespace RlGraJB
 				{
 					player.points--;
 					Enemies[i].alreadyPoint = true;
+					Enemies[i].EnColor = BLUE;
 				}
 			}
 		}

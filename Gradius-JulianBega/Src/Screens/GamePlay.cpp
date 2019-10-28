@@ -12,7 +12,7 @@ namespace RlGraJB
 
 	void InitGame(Player &player1)
 	{
-		player1 = InitPlayer(60 , screenHeight * 7 / 8, screenWidth / 15, 20); ///////////// Cambiar a statics como playerwith, etc
+		player1 = InitPlayer(60 , screenHeight * 7 / 8, screenWidth / 20, 30); ///////////// Cambiar a statics como playerwith, etc
 		
 		actualBackGroundPos = 0;
 		
@@ -23,17 +23,13 @@ namespace RlGraJB
 		}
 		
 
-		// Initialize bricks
-		int initialDownPosition = 50;
-
-		
 	}
 
-	void UpdateGame(Player &player1)
+	void UpdateGame(Player &player1, Texture2D tank, Texture2D tank2)
 	{
 		if (!gameOver)
 		{
-				DrawGame(player1);
+				DrawGame(player1, tank,tank2);
 				MovePlayer(player1);
 				UpdateEnemy();
 				UpdateBackGround(actualBackGroundPos, 0);
