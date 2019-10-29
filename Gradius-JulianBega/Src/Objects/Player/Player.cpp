@@ -6,7 +6,7 @@
 
 namespace RlGraJB
 {
-	
+
 	Player InitPlayer(int posX, int posY, int width, int height)
 	{
 		Player player;
@@ -25,17 +25,17 @@ namespace RlGraJB
 		if (IsKeyDown('W')) player.position.y -= player.speed  * GetFrameTime();
 		if ((player.position.y - player.size.y / 2) <= 0 + screenHeight / 6) player.position.y = player.size.y / 2 + screenHeight / 6;
 		if (IsKeyDown('S')) player.position.y += player.speed  * GetFrameTime();
-		if ((player.position.y + player.size.y / 2) >= screenHeight - screenHeight/6) player.position.y = screenHeight - screenHeight / 6 - player.size.y / 2;
+		if ((player.position.y + player.size.y / 2) >= screenHeight - screenHeight / 6) player.position.y = screenHeight - screenHeight / 6 - player.size.y / 2;
 	}
 	void CheckCollisionWithEnemies(Player &player)
 	{
 		for (int i = 0; i < TotalEnemies; i++)
 		{
-			if ( player.position.x + player.size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x/2 &&
-			   ((player.position.y + player.size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 && 
-				 player.position.y - player.size.y / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
-				(player.position.y - player.size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
-				 player.position.y + player.size.y / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2)))
+			if (player.position.x + player.size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x / 2 &&
+				((player.position.y + player.size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 &&
+					player.position.y - player.size.y / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
+					(player.position.y - player.size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
+						player.position.y + player.size.y / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2)))
 			{
 				if (Enemies[i].alreadyPoint == false)
 				{
@@ -46,7 +46,7 @@ namespace RlGraJB
 				}
 			}
 		}
-		
+
 	}
 
 	void CheckPoint(Player &player)
@@ -69,12 +69,12 @@ namespace RlGraJB
 	{
 		if (player.bullets >= 1)
 		{
-		if (bullets[player.bullets - 1].Alive == false)
-		{
-		bullets[player.bullets - 1]= InitBullet(player.position.x, player.position.y, 10,10 );
-		bullets[player.bullets - 1].Alive = true;
-		player.bullets--;
-		}
+			if (bullets[player.bullets - 1].Alive == false)
+			{
+				bullets[player.bullets - 1] = InitBullet(player.position.x, player.position.y, 10, 10);
+				bullets[player.bullets - 1].Alive = true;
+				player.bullets--;
+			}
 		}
 	}
 }

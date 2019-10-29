@@ -18,7 +18,8 @@ namespace RlGraJB
 	extern int TotalEnemies;
 	extern Enemy Enemies[20];
 
-	Enemy InitEnemy(int posX, int posY, int width, int height);
+	Enemy InitEnemy(int posX, int posY, int width, int height, Color color);
+
 	void MoveEnemy();
 	void UpdateEnemy();
 	//void CheckBulletColission(Enemy &enemy);

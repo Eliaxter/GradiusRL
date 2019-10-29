@@ -25,7 +25,7 @@ namespace RlGraJB
 		{
 			if (bullets[i].Alive == true)
 			{
-			bullets[i].position.x = bullets[i].position.x + bullets[i].Speed * GetFrameTime();
+				bullets[i].position.x = bullets[i].position.x + bullets[i].Speed * GetFrameTime();
 			}
 		}
 	}
