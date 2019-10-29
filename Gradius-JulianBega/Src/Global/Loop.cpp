@@ -27,7 +27,9 @@ namespace RlGraJB
 		Image tank2 = LoadImage("../Res/Assets/Tank2.png");
 		ImageResize(&tank2, 96, 61);
 		Texture2D tanke2 = LoadTextureFromImage(tank2);
- 
+
+		UnloadImage(tank);
+		UnloadImage(tank2);
 	   	
 		while (ActualScreen != ENDING && !WindowShouldClose())    
 		{
@@ -47,7 +49,7 @@ namespace RlGraJB
 				break;
 
 			case CREDITSSCREEN:
-
+				UpdateCredits(player1);
 				break;
 			
 			case ENDING:
@@ -63,6 +65,8 @@ namespace RlGraJB
 			
 			//----------------------------------------------------------------------------------
 		}
+		UnloadTexture(tanke);
+		UnloadTexture(tanke2);
 		//UnloadGame();         // Unload loaded data (textures, sounds, models...)
 
 		CloseWindow();

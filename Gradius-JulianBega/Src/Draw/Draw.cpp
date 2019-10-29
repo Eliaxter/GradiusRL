@@ -95,5 +95,20 @@ namespace RlGraJB
 		
 	}
 
+	void DrawCredits()
+	{
+		BeginDrawing();
+
+		ClearBackground(WHITE);
+
+		
+			DrawText("Press M to go to menu", screenWidth / 2 - MeasureText("Press M to go to menu", 40) / 2, screenHeight / 2 - 120, 30, BLACK);
+			DrawText("Press Esc to leave the game", screenWidth / 2 - MeasureText("Press Esc to leave the game", 40) / 2, screenHeight / 2 - 40, 30, BLACK);
+			DrawText("Game created by Julian Bega", screenWidth / 2 - MeasureText("Game created by Julian Bega", 40) / 2, screenHeight / 2 + 80, 30, BLACK);
+			DrawText("Tank created by Joaquin Italiano", screenWidth / 2 - MeasureText("Tank created by Joaquin Italiano", 40) / 2, screenHeight / 2 + 120, 30, BLACK);
+		
+		EndDrawing();
+	}
+
 
 }

@@ -38,6 +38,11 @@ namespace RlGraJB
 				CheckPoint(player1);
 				tankAnimationTimer += GetFrameTime();
 				
+				if (player1.life <= 0)
+				{
+					ActualScreen = CREDITSSCREEN;
+					
+				}
 				if (IsKeyReleased('O'))
 				{
 					ActualScreen = CREDITSSCREEN;

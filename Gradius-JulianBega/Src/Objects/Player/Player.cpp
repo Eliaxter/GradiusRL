@@ -12,6 +12,7 @@ namespace RlGraJB
 		player.size.y = height;
 		player.life = PLAYER_MAX_LIFE;
 		player.speed = PLAYER_REGULAR_SPEED;
+		player.points = 0;
 		return player;
 	}
 	void MovePlayer(Player &player)

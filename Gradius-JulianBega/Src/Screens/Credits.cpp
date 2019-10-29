@@ -1,16 +1,17 @@
 #include "Credits.h"
-#include "raylib.h"
-#include "Global/Global.h"
+#include "Draw/Draw.h"
+#include "GamePlay.h"
+#include "Objects/Player/Player.h"
 
 namespace RlGraJB
 {
-	void UpdateCredits()
+	void UpdateCredits(Player &player)
 	{
-		
-			if (IsKeyPressed(KEY_ENTER))
-			{
-				ActualScreen = MENUSCREEN;
-			}
-		//Joaquin Italiano creador del tanque
+		DrawCredits();
+		if (IsKeyPressed('M'))
+		{
+			InitGame(player);
+			ActualScreen = MENUSCREEN;
+		}
 	}
 }
