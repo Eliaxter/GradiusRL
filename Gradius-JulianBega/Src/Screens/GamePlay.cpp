@@ -37,16 +37,17 @@ namespace RlGraJB
 				CheckCollisionWithEnemies(player1);
 				CheckPoint(player1);
 				tankAnimationTimer += GetFrameTime();
-				
+				if (IsKeyPressed(KEY_SPACE))
+				{
+					Shoot(player1);
+				}
+
 				if (player1.life <= 0)
 				{
 					ActualScreen = CREDITSSCREEN;
 					
 				}
-				if (IsKeyReleased('O'))
-				{
-					ActualScreen = CREDITSSCREEN;
-				}
+				
 		}
 		else
 		{

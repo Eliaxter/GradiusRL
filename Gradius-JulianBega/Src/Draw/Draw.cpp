@@ -4,6 +4,7 @@
 #include "Screens/GamePlay.h"
 #include "Global/Global.h"
 #include "Animation/Animations.h"
+#include "Objects/Bullets/Bullet.h"
 
 namespace RlGraJB
 {
@@ -36,9 +37,10 @@ namespace RlGraJB
 					tankAnimationTimer = 0;
 				}
 			}
-			
+			DrawBullet();
 			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
-			DrawText(TextFormat("Lifes: %i", player1.life), MeasureText("Points: %i", 40) * 2, 0 + 30, 20, WHITE);
+			DrawText(TextFormat("Lifes: %i", player1.life), MeasureText("Lifes: %i", 40) * 2, 0 + 30, 20, WHITE);
+			DrawText(TextFormat("Bullets: %i", player1.bullets), MeasureText("Bullets: %i", 40) * 3, 0 + 30, 20, WHITE);
 			
 			if (pause) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 		}
@@ -108,6 +110,18 @@ namespace RlGraJB
 			DrawText("Tank created by Joaquin Italiano", screenWidth / 2 - MeasureText("Tank created by Joaquin Italiano", 40) / 2, screenHeight / 2 + 120, 30, BLACK);
 		
 		EndDrawing();
+	}
+
+	void DrawBullet()
+	{
+		for (int i = 0; i < MaxBullets; i++)
+		{
+			if (bullets[i].Alive)
+			{ 
+			DrawRectangle(bullets[i].position.x, bullets[i].position.y + bullets[i].size.y / (2 / 5), bullets[i].size.x, bullets[i].size.y, BLACK);
+			}
+
+		}
 	}
 
 

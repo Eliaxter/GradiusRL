@@ -10,6 +10,6 @@ namespace RlGraJB
 	void BackGroundDraw(int InitPoint);
 	void DrawMenu(bool play, bool exit);
 	void DrawCredits();
-	
+	void DrawBullet();
 }
 #endif

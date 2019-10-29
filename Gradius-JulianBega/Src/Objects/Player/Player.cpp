@@ -1,4 +1,8 @@
 #include "Player.h"
+#include "Global/Global.h"
+#include "Objects/Bullets/Bullet.h"
+#include "Objects/Enemy/Enemy.h"
+#include "raylib.h"
 
 namespace RlGraJB
 {
@@ -13,6 +17,7 @@ namespace RlGraJB
 		player.life = PLAYER_MAX_LIFE;
 		player.speed = PLAYER_REGULAR_SPEED;
 		player.points = 0;
+		player.bullets = 5;
 		return player;
 	}
 	void MovePlayer(Player &player)
@@ -57,6 +62,19 @@ namespace RlGraJB
 					Enemies[i].alreadyPoint = true;
 				}
 			}
+		}
+	}
+
+	void Shoot(Player &player)
+	{
+		if (player.bullets >= 1)
+		{
+		if (bullets[player.bullets - 1].Alive == false)
+		{
+		bullets[player.bullets - 1]= InitBullet(player.position.x, player.position.y, 10,10 );
+		bullets[player.bullets - 1].Alive = true;
+		player.bullets--;
+		}
 		}
 	}
 }

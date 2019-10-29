@@ -58,17 +58,11 @@ namespace RlGraJB
 
 			default:
 				break;
-			}
+			}	
 			
-			// Update and Draw
-			//----------------------------------------------------------------------------------
-			
-			//----------------------------------------------------------------------------------
 		}
 		UnloadTexture(tanke);
 		UnloadTexture(tanke2);
-		//UnloadGame();         // Unload loaded data (textures, sounds, models...)
-
 		CloseWindow();
 	}
 }

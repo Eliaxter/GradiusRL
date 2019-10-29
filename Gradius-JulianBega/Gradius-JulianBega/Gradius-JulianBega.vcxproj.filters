@@ -49,6 +49,9 @@
     <ClCompile Include="..\Src\Global\Loop.cpp">
       <Filter>Global</Filter>
     </ClCompile>
+    <ClCompile Include="..\Src\Objects\Bullets\Bullet.cpp">
+      <Filter>Objects\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Src\Draw\Draw.h">
@@ -74,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="..\Src\Global\Loop.h">
       <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Objects\Bullets\Bullet.h">
+      <Filter>Objects\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
