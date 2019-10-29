@@ -6,7 +6,7 @@
 
 namespace RlGraJB
 {
-	const int PLAYER_MAX_LIFE = 5;
+	const int PLAYER_MAX_LIFE = 10;
 	const int PLAYER_REGULAR_SPEED = 300;
 
 	struct Player {

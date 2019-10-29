@@ -33,9 +33,10 @@ namespace RlGraJB
 			{
 				if (Enemies[i].alreadyPoint == false)
 				{
-					player.points--;
+					player.points - 10;
 					Enemies[i].alreadyPoint = true;
 					Enemies[i].EnColor = BLUE;
+					player.life--;
 				}
 			}
 		}

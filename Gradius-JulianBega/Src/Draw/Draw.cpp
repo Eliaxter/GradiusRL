@@ -37,7 +37,8 @@ namespace RlGraJB
 				}
 			}
 			
-			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, GRAY);
+			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
+			DrawText(TextFormat("Lifes: %i", player1.life), MeasureText("Points: %i", 40) * 2, 0 + 30, 20, WHITE);
 			
 			if (pause) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 		}
