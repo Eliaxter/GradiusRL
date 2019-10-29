@@ -36,6 +36,7 @@ namespace RlGraJB
 				UpdateBackGround(actualBackGroundPos2, screenWidth);
 				CheckCollisionWithEnemies(player1);
 				CheckPoint(player1);
+				tankAnimationTimer += GetFrameTime();
 				
 				if (IsKeyReleased('O'))
 				{

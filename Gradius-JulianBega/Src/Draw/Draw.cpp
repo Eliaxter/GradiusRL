@@ -23,15 +23,18 @@ namespace RlGraJB
 			{
 				DrawRectangle(Enemies[i].position.x - Enemies[i].size.x / 2, Enemies[i].position.y - Enemies[i].size.y / 2, Enemies[i].size.x, Enemies[i].size.y, Enemies[i].EnColor);
 			}
-			if (animationTemporal == false)
+			if (tankAnimationTimer <= 1)
 			{
 				DrawTexture(tank, player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y, WHITE);
-				animationTemporal = true;
+				
 			}
-			if (animationTemporal == true)
+			if (tankAnimationTimer >= 1)
 			{
 				DrawTexture(tank2, player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y, WHITE);
-				animationTemporal = false;
+				if (tankAnimationTimer >= 2)
+				{
+					tankAnimationTimer = 0;
+				}
 			}
 			
 			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, GRAY);
