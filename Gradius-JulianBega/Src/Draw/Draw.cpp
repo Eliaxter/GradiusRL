@@ -37,7 +37,13 @@ namespace RlGraJB
 					tankAnimationTimer = 0;
 				}
 			}
-			DrawBullet();
+			for (int i = 0; i<MaxBullets; i++)
+			{
+				if (bullets[i].Alive == true)
+				{
+					DrawRectangle(bullets[i].rec.x, bullets[i].rec.y + bullets[i].rec.y / (2 / 5), bullets[i].rec.width, bullets[i].rec.height, BLACK);
+				}
+			}
 			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
 			DrawText(TextFormat("Lifes: %i", player1.life), MeasureText("Lifes: %i", 40) * 2, 0 + 30, 20, WHITE);
 			DrawText(TextFormat("Bullets: %i", player1.bullets), MeasureText("Bullets: %i", 40) * 3, 0 + 30, 20, WHITE);
@@ -111,18 +117,14 @@ namespace RlGraJB
 		
 		EndDrawing();
 	}
-
+	/*
 	void DrawBullet()
 	{
 		for (int i = 0; i < MaxBullets; i++)
 		{
-			if (bullets[i].Alive == true)
-			{ 
-				DrawRectangle(bullets[i].rec.x, bullets[i].rec.y + bullets[i].rec.y / (2 / 5), bullets[i].rec.width, bullets[i].rec.height, BLACK);
-			}
-
+			DrawRectangle(bullets[i].rec.x, bullets[i].rec.y + bullets[i].rec.y / (2 / 5), bullets[i].rec.width, bullets[i].rec.height, BLACK);
 		}
-	}
+	}*/
 
 
 }

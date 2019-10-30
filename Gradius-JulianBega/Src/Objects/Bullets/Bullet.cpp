@@ -32,19 +32,18 @@ namespace RlGraJB
 			}
 		}
 	}
-
+	 /*
 	void UpdateBullet()
 	{
-		CheckBulletOutOfScreen();
+		
 		for (int i = 0; i < MaxBullets; i++)
 		{
 			if (bullets[i].Alive == true)
 			{
-				MoveBullet();
-				DrawBullet();
+				//DrawBullet();
 			}
 		}
-	}
+	}*/
 
 	void CheckBulletOutOfScreen()
 	{

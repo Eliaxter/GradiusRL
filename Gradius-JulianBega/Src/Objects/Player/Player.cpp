@@ -70,7 +70,7 @@ namespace RlGraJB
 	{
 		if (player.bullets >= 1)
 		{
-			UpdateBullet();
+			//UpdateBullet();
 			player.bullets--;
 			/*
 			for (int i = 0; i < MaxBullets; i++)

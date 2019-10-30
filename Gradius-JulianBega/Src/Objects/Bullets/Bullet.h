@@ -16,7 +16,7 @@ namespace RlGraJB
 
 	void InitBullet(int posX, int posY, int width, int height, bool alive, bool alreadyKill);
 	void MoveBullet();
-	void UpdateBullet();
+	//void UpdateBullet();
 	//void CheckBulletColission(Enemy &enemy);
 	void CheckBulletOutOfScreen();
 }

@@ -21,10 +21,7 @@ namespace RlGraJB
 			Enemies[0] = InitEnemy(GetRandomValue(screenWidth, screenWidth * 2), screenHeight - 20, 50, 20, GREEN);
 		}
 
-		for (int i = 0;  i < MaxBullets;  i++)
-		{
-			InitBullet(bullets[i].rec.x, bullets[i].rec.y, 10, 10, false, false);
-		}
+		InitBullet(player1.position.x, player1.position.y, 10, 10, false, false);
 
 	}
 
@@ -39,6 +36,14 @@ namespace RlGraJB
 			UpdateBackGround(actualBackGroundPos2, screenWidth);
 			CheckCollisionWithEnemies(player1);
 			CheckPoint(player1);
+			CheckBulletOutOfScreen();
+			for (int i = 0; i < MaxBullets; i++)
+			{
+				if (bullets[i].Alive == true)
+				{
+					MoveBullet();
+				}
+			}
 			tankAnimationTimer += GetFrameTime();
 			if (IsKeyPressed(KEY_SPACE))
 			{
