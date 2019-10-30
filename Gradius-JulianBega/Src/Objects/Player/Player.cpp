@@ -2,6 +2,7 @@
 #include "Global/Global.h"
 #include "Objects/Bullets/Bullet.h"
 #include "Objects/Enemy/Enemy.h"
+#include "Draw/Draw.h"
 #include "raylib.h"
 
 namespace RlGraJB
@@ -69,12 +70,22 @@ namespace RlGraJB
 	{
 		if (player.bullets >= 1)
 		{
-			if (bullets[player.bullets - 1].Alive == false)
+			UpdateBullet();
+			player.bullets--;
+			/*
+			for (int i = 0; i < MaxBullets; i++)
 			{
-				bullets[player.bullets - 1] = InitBullet(player.position.x, player.position.y, 10, 10);
-				bullets[player.bullets - 1].Alive = true;
-				player.bullets--;
-			}
+				//bullets[i].Alive = true;
+				if (bullets[i].Alive == true)
+				{
+					//bullets[player.bullets - 1] = InitBullet(player.position.x, player.position.y, 10, 10);
+					//bullets[player.bullets - 1].Alive = true;
+					//player.bullets--;
+ 					//MoveBullet();
+					//DrawBullet();
+				}
+			} */
+			
 		}
 	}
 }

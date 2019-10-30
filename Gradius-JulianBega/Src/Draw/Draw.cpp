@@ -116,9 +116,9 @@ namespace RlGraJB
 	{
 		for (int i = 0; i < MaxBullets; i++)
 		{
-			if (bullets[i].Alive)
+			if (bullets[i].Alive == true)
 			{ 
-			DrawRectangle(bullets[i].position.x, bullets[i].position.y + bullets[i].size.y / (2 / 5), bullets[i].size.x, bullets[i].size.y, BLACK);
+				DrawRectangle(bullets[i].rec.x, bullets[i].rec.y + bullets[i].rec.y / (2 / 5), bullets[i].rec.width, bullets[i].rec.height, BLACK);
 			}
 
 		}

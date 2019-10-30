@@ -4,37 +4,46 @@
 namespace RlGraJB
 {
 
-	extern const int MaxBullets = 5;
+	static float bulletSpeed = 500.0f;
+
+	const int MaxBullets = 5;
 	Bullet bullets[MaxBullets] = { 0 };
 
-	Bullet InitBullet(int posX, int posY, int width, int height)
+	void InitBullet(int posX, int posY, int width, int height, bool alive, bool alreadyKill)
 	{
-		Bullet bullet;
-		bullet.position.x = posX;
-		bullet.position.y = posY;
-		bullet.size.x = width;
-		bullet.size.y = height;
-		bullet.BuColor = BROWN;
-		return bullet;
+		for (int i = 0; i < MaxBullets; i++)
+		{
+			bullets[i].rec.x = posX;
+			bullets[i].rec.y = posY;
+			bullets[i].rec.width= width;
+			bullets[i].rec.height = height;
+			bullets[i].Alive = alive;
+			bullets[i].alreadyKill = alreadyKill;
+		}
 	}
 
 	void MoveBullet()
 	{
-
 		for (int i = 0; i < MaxBullets; i++)
 		{
 			if (bullets[i].Alive == true)
 			{
-				bullets[i].position.x = bullets[i].position.x + bullets[i].Speed * GetFrameTime();
+				bullets[i].rec.x += bulletSpeed * GetFrameTime();
 			}
 		}
 	}
 
 	void UpdateBullet()
 	{
-		MoveBullet();
 		CheckBulletOutOfScreen();
-		DrawBullet();
+		for (int i = 0; i < MaxBullets; i++)
+		{
+			if (bullets[i].Alive == true)
+			{
+				MoveBullet();
+				DrawBullet();
+			}
+		}
 	}
 
 	void CheckBulletOutOfScreen()
@@ -43,7 +52,7 @@ namespace RlGraJB
 		{
 			if (bullets[i].Alive == true)
 			{
-				if (bullets[i].position.x >= screenWidth)
+				if (bullets[i].rec.x >= screenWidth)
 				{
 					bullets[i].Alive = false;
 				}
