@@ -16,7 +16,7 @@ namespace RlGraJB
 		InitWindow(screenWidth, screenHeight, "sample game: Gradius");
 		SetTargetFPS(60);
 		HideCursor();
-		Enemies[MaxEnemies];
+		enemies[MaxEnemies];
 		int currentScreen = 1;
 		InitGame();
 
@@ -32,6 +32,7 @@ namespace RlGraJB
 	   	
 		while (ActualScreen != ENDING && !WindowShouldClose())    
 		{
+			BeginDrawing();
 			switch (ActualScreen)
 			{
 			case MENUSCREEN:
@@ -58,7 +59,7 @@ namespace RlGraJB
 			default:
 				break;
 			}	
-			
+			EndDrawing();
 		}
 		UnloadTexture(tanke);
 		UnloadTexture(tanke2);

@@ -2,26 +2,30 @@
 
 namespace RlGraJB
 {
-	extern const int MaxEnemies = 20;
+	const int MaxEnemies = 20;
 	int TotalEnemies = 20;
-	Enemy Enemies[MaxEnemies] = { 0 };
+	Enemy enemies[MaxEnemies] = { 0 };
 
-	Enemy InitEnemy(int posX, int posY, int width, int height, Color color)
+	void InitEnemy()
 	{
-		Enemy enemy;
-		enemy.position.x = posX;
-		enemy.position.y = posY;
-		enemy.size.x = width;
-		enemy.size.y = height;
-		enemy.EnColor = color;
-		return enemy;
+		for (int i = 0; i < MaxEnemies; i++)
+		{
+			enemies[i].rec.x = GetRandomValue(screenWidth, screenWidth * 2);
+			enemies[i].rec.y = GetRandomValue(screenHeight / 6, screenHeight - screenHeight / 6);
+			enemies[i].rec.width = 50.0f;
+			enemies[i].rec.height = 20.0f;
+			enemies[i].Alive = true;
+			enemies[i].Speed = 500.0f;
+			enemies[i].alreadyPoint = false;
+			enemies[i].EnColor = RED;
+		}
 	}
 
 	void MoveEnemy()
 	{
 		for (int i = 0; i < MaxEnemies; i++)
 		{
-			Enemies[i].position.x = Enemies[i].position.x - Enemies[i].Speed * GetFrameTime();
+			enemies[i].rec.x = enemies[i].rec.x - enemies[i].Speed * GetFrameTime();
 		}
 	}
 
@@ -35,34 +39,34 @@ namespace RlGraJB
 	{
 		for (int i = 1; i < MaxEnemies; i++)
 		{
-			if (Enemies[i].position.x <= 0 - Enemies[i].size.x)
+			if (enemies[i].rec.x <= 0 - enemies[i].rec.width)
 			{
 				for (int j = 0; j < MaxEnemies; j++)
 				{
-					while ((Enemies[j].position.x + Enemies[j].size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x / 2 &&
-						((Enemies[j].position.y + Enemies[j].size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 &&
-							Enemies[j].position.y - Enemies[j].size.y / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
-							(Enemies[j].position.y - Enemies[j].size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
-								Enemies[j].position.y + Enemies[j].size.y / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2))) &&
+					while ((enemies[j].rec.width + enemies[j].rec.width / 2 >= enemies[i].rec.x - enemies[i].rec.width / 2 &&
+						((enemies[j].rec.y + enemies[j].rec.height / 2 >= enemies[i].rec.y - enemies[i].rec.height / 2 &&
+							enemies[j].rec.y - enemies[j].rec.height / 2 <= enemies[i].rec.y - enemies[i].rec.height / 2) ||
+							(enemies[j].rec.y - enemies[j].rec.height / 2 <= enemies[i].rec.y + enemies[i].rec.height / 2 &&
+								enemies[j].rec.y + enemies[j].rec.height / 2 >= enemies[i].rec.y + enemies[i].rec.height / 2))) &&
 						j != i
 						)
 					{
-						Enemies[i].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
-						Enemies[i].position.y = GetRandomValue(screenHeight / 6 + Enemies[i].size.y, screenHeight - (screenHeight / 6) - Enemies[i].size.y);
-						Enemies[i].alreadyPoint = false;
-						Enemies[i].EnColor = RED;
+						enemies[i].rec.x = screenWidth + GetRandomValue(0, enemies[i].rec.width * 2);
+						enemies[i].rec.y = GetRandomValue(screenHeight / 6 + enemies[i].rec.height, screenHeight - (screenHeight / 6) - enemies[i].rec.height);
+						enemies[i].alreadyPoint = false;
+						enemies[i].EnColor = RED;
 					}
 
 
 				}
 
 			}
-			if (Enemies[0].position.x <= 0 - Enemies[0].size.x)
+			if (enemies[0].rec.x <= 0 - enemies[0].rec.width)
 			{
-				Enemies[0].position.x = screenWidth + GetRandomValue(0, Enemies[i].size.x * 2);
-				Enemies[0].position.y = screenHeight - 20;
-				Enemies[0].alreadyPoint = false;
-				Enemies[0].EnColor = GREEN;
+				enemies[0].rec.x = screenWidth + GetRandomValue(0, enemies[i].rec.width * 2);
+				enemies[0].rec.y = screenHeight - 20;
+				enemies[0].alreadyPoint = false;
+				enemies[0].EnColor = GREEN;
 			}
 		}
 	}

@@ -31,17 +31,17 @@ namespace RlGraJB
 	{
 		for (int i = 0; i < TotalEnemies; i++)
 		{
-			if (player.rec.x + player.rec.width / 2 >= Enemies[i].position.x - Enemies[i].size.x / 2 &&
-				((player.rec.y + player.rec.height / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 &&
-					player.rec.y - player.rec.height / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
-					(player.rec.y - player.rec.height / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
-						player.rec.y + player.rec.height / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2)))
+			if (player.rec.x + player.rec.width / 2 >= enemies[i].rec.x - enemies[i].rec.width / 2 &&
+				((player.rec.y + player.rec.height / 2 >= enemies[i].rec.y - enemies[i].rec.height / 2 &&
+					player.rec.y - player.rec.height / 2 <= enemies[i].rec.y - enemies[i].rec.height / 2) ||
+					(player.rec.y - player.rec.height / 2 <= enemies[i].rec.y + enemies[i].rec.height / 2 &&
+						player.rec.y + player.rec.height / 2 >= enemies[i].rec.y + enemies[i].rec.height / 2)))
 			{
-				if (Enemies[i].alreadyPoint == false)
+				if (enemies[i].alreadyPoint == false)
 				{
 					player.points - 10;
-					Enemies[i].alreadyPoint = true;
-					Enemies[i].EnColor = BLUE;
+					enemies[i].alreadyPoint = true;
+					enemies[i].EnColor = BLUE;
 					player.life--;
 				}
 			}
@@ -54,12 +54,12 @@ namespace RlGraJB
 		for (int i = 0; i < TotalEnemies; i++)
 		{
 
-			if (player.rec.x - player.rec.width / 2 >= Enemies[i].position.x + Enemies[i].size.x / 2)
+			if (player.rec.x - player.rec.width / 2 >= enemies[i].rec.x + enemies[i].rec.width / 2)
 			{
-				if (Enemies[i].alreadyPoint == false)
+				if (enemies[i].alreadyPoint == false)
 				{
 					player.points++;
-					Enemies[i].alreadyPoint = true;
+					enemies[i].alreadyPoint = true;
 				}
 			}
 		}

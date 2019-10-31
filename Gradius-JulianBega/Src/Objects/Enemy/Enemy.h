@@ -5,20 +5,19 @@
 
 namespace RlGraJB
 {
-	
 	struct Enemy {
-		Vector2 position;
-		Vector2 size;
+		Rectangle rec;
 		bool Alive = true;
-		float Speed = 500;
+		float Speed;
 		bool alreadyPoint = false;
 		Color EnColor = RED;
 	};
 	extern const int MaxEnemies;
 	extern int TotalEnemies;
-	extern Enemy Enemies[20];
+	extern const int MaxEnemies;
+	extern Enemy enemies[20];
 
-	Enemy InitEnemy(int posX, int posY, int width, int height, Color color);
+	void InitEnemy();
 
 	void MoveEnemy();
 	void UpdateEnemy();

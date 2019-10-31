@@ -5,7 +5,6 @@
 
 namespace RlGraJB
 {
-
 	struct Bullet {
 		Rectangle rec;
 		bool Alive;

@@ -26,10 +26,12 @@ namespace RlGraJB
 	{
 		for (int i = 0; i < MaxBullets; i++)
 		{
+			bullets[i].rec.x += bulletSpeed * GetFrameTime();
+			/*
 			if (bullets[i].Alive == true)
 			{
 				bullets[i].rec.x += bulletSpeed * GetFrameTime();
-			}
+			}*/
 		}
 	}
 	 
@@ -53,7 +55,7 @@ namespace RlGraJB
 			{
 				if (bullets[i].rec.x >= screenWidth)
 				{
-					bullets[i].Alive = false;
+					InitBullet();
 				}
 			}
 		}
