@@ -1,5 +1,6 @@
 #include "Bullet.h"
 #include "Draw/Draw.h"
+#include "Objects/Player/Player.h"
 
 namespace RlGraJB
 {
@@ -9,16 +10,15 @@ namespace RlGraJB
 	const int MaxBullets = 5;
 	Bullet bullets[MaxBullets] = { 0 };
 
-	void InitBullet(int posX, int posY, int width, int height, bool alive, bool alreadyKill)
+	void InitBullet()
 	{
 		for (int i = 0; i < MaxBullets; i++)
 		{
-			bullets[i].rec.x = posX;
-			bullets[i].rec.y = posY;
-			bullets[i].rec.width= width;
-			bullets[i].rec.height = height;
-			bullets[i].Alive = alive;
-			bullets[i].alreadyKill = alreadyKill;
+			bullets[i].rec.x = player.rec.x;
+			bullets[i].rec.y = player.rec.y;
+			bullets[i].rec.width= 10.0f;
+			bullets[i].rec.height = 10.0f;
+			bullets[i].Alive = false;
 		}
 	}
 
@@ -32,15 +32,15 @@ namespace RlGraJB
 			}
 		}
 	}
-	 /*
-	void UpdateBullet()
+	 
+	/*void UpdateBullet()
 	{
 		
 		for (int i = 0; i < MaxBullets; i++)
 		{
 			if (bullets[i].Alive == true)
 			{
-				//DrawBullet();
+				DrawBullet();
 			}
 		}
 	}*/

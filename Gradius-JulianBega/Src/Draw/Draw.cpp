@@ -8,7 +8,7 @@
 
 namespace RlGraJB
 {
-	void DrawGame(Player &player1, Texture2D tank, Texture2D tank2)
+	void DrawGame(Texture2D tank, Texture2D tank2)
 	{
 		BeginDrawing();
 
@@ -18,7 +18,7 @@ namespace RlGraJB
 		{
 			
 			// Draw player bar
-			DrawRectangle(player1.position.x, player1.position.y + player1.size.y/(2/5) , player1.size.x, player1.size.y, BLUE);
+			DrawRectangle(player.rec.x, player.rec.y + player.rec.height/(2/5) , player.rec.width, player.rec.height, BLUE);
 			
 			for (int i = 0; i < MaxEnemies; i++)
 			{
@@ -26,27 +26,35 @@ namespace RlGraJB
 			}
 			if (tankAnimationTimer <= 1)
 			{
-				DrawTexture(tank, player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y, WHITE);
+				DrawTexture(tank, player.rec.x - player.rec.width / 2, player.rec.y - player.rec.height, WHITE);
 				
 			}
 			if (tankAnimationTimer >= 1)
 			{
-				DrawTexture(tank2, player1.position.x - player1.size.x / 2, player1.position.y - player1.size.y, WHITE);
+				DrawTexture(tank2, player.rec.x - player.rec.width / 2, player.rec.y - player.rec.height, WHITE);
 				if (tankAnimationTimer >= 2)
 				{
 					tankAnimationTimer = 0;
 				}
 			}
+			for (int i = 0; i < MaxBullets; i++)
+			{
+				if (bullets[i].Alive == true)
+				{
+					DrawBullet();
+				}
+			}
+			/*
 			for (int i = 0; i<MaxBullets; i++)
 			{
 				if (bullets[i].Alive == true)
 				{
 					DrawRectangle(bullets[i].rec.x, bullets[i].rec.y + bullets[i].rec.y / (2 / 5), bullets[i].rec.width, bullets[i].rec.height, BLACK);
 				}
-			}
-			DrawText(TextFormat("Points: %i", player1.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
-			DrawText(TextFormat("Lifes: %i", player1.life), MeasureText("Lifes: %i", 40) * 2, 0 + 30, 20, WHITE);
-			DrawText(TextFormat("Bullets: %i", player1.bullets), MeasureText("Bullets: %i", 40) * 3, 0 + 30, 20, WHITE);
+			}*/
+			DrawText(TextFormat("Points: %i", player.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
+			DrawText(TextFormat("Lifes: %i", player.life), MeasureText("Lifes: %i", 40) * 2, 0 + 30, 20, WHITE);
+			DrawText(TextFormat("Bullets: %i", player.bullets), MeasureText("Bullets: %i", 40) * 3, 0 + 30, 20, WHITE);
 			
 			if (pause) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 		}
@@ -98,9 +106,6 @@ namespace RlGraJB
 
 			DrawRectangle(GetRandomValue(0, screenWidth), GetRandomValue(0, screenHeight), 3, 2, BROWN);
 		}
-		
-		
-		
 	}
 
 	void DrawCredits()
@@ -117,14 +122,12 @@ namespace RlGraJB
 		
 		EndDrawing();
 	}
-	/*
+	
 	void DrawBullet()
 	{
 		for (int i = 0; i < MaxBullets; i++)
 		{
-			DrawRectangle(bullets[i].rec.x, bullets[i].rec.y + bullets[i].rec.y / (2 / 5), bullets[i].rec.width, bullets[i].rec.height, BLACK);
+			DrawRectangle(static_cast<int>(bullets[i].rec.x), static_cast<int>(bullets[i].rec.y) + static_cast<int>(bullets[i].rec.y / (2 / 5)), static_cast<int>(bullets[i].rec.width), static_cast<int>(bullets[i].rec.height), BLACK);
 		}
-	}*/
-
-
+	}
 }

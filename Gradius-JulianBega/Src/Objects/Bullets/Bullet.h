@@ -14,10 +14,8 @@ namespace RlGraJB
 	extern const int MaxBullets;
 	extern Bullet bullets[5];
 
-	void InitBullet(int posX, int posY, int width, int height, bool alive, bool alreadyKill);
+	void InitBullet();
 	void MoveBullet();
-	//void UpdateBullet();
-	//void CheckBulletColission(Enemy &enemy);
 	void CheckBulletOutOfScreen();
 }
 #endif

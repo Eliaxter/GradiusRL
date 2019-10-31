@@ -7,36 +7,35 @@
 
 namespace RlGraJB
 {
+	Player player;
 
-	Player InitPlayer(int posX, int posY, int width, int height)
+	void InitPlayer()
 	{
-		Player player;
-		player.position.x = posX;
-		player.position.y = posY;
-		player.size.x = width;
-		player.size.y = height;
+		player.rec.x = 60.0f;
+		player.rec.y = screenHeight * 7 / 8;
+		player.rec.width = 40.0f;
+		player.rec.height = 30.0f;
 		player.life = PLAYER_MAX_LIFE;
 		player.speed = PLAYER_REGULAR_SPEED;
 		player.points = 0;
 		player.bullets = 5;
-		return player;
 	}
-	void MovePlayer(Player &player)
+	void MovePlayer()
 	{
-		if (IsKeyDown('W')) player.position.y -= player.speed  * GetFrameTime();
-		if ((player.position.y - player.size.y / 2) <= 0 + screenHeight / 6) player.position.y = player.size.y / 2 + screenHeight / 6;
-		if (IsKeyDown('S')) player.position.y += player.speed  * GetFrameTime();
-		if ((player.position.y + player.size.y / 2) >= screenHeight - screenHeight / 6) player.position.y = screenHeight - screenHeight / 6 - player.size.y / 2;
+		if (IsKeyDown(KEY_W)) player.rec.y -= player.speed  * GetFrameTime();
+		if ((player.rec.y - player.rec.height/ 2) <= 0 + screenHeight / 6) player.rec.y = player.rec.height / 2 + screenHeight / 6;
+		if (IsKeyDown(KEY_S)) player.rec.y += player.speed  * GetFrameTime();
+		if ((player.rec.y + player.rec.height / 2) >= screenHeight - screenHeight / 6) player.rec.y = screenHeight - screenHeight / 6 - player.rec.height / 2;
 	}
-	void CheckCollisionWithEnemies(Player &player)
+	void CheckCollisionWithEnemies()
 	{
 		for (int i = 0; i < TotalEnemies; i++)
 		{
-			if (player.position.x + player.size.x / 2 >= Enemies[i].position.x - Enemies[i].size.x / 2 &&
-				((player.position.y + player.size.y / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 &&
-					player.position.y - player.size.y / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
-					(player.position.y - player.size.y / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
-						player.position.y + player.size.y / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2)))
+			if (player.rec.x + player.rec.width / 2 >= Enemies[i].position.x - Enemies[i].size.x / 2 &&
+				((player.rec.y + player.rec.height / 2 >= Enemies[i].position.y - Enemies[i].size.y / 2 &&
+					player.rec.y - player.rec.height / 2 <= Enemies[i].position.y - Enemies[i].size.y / 2) ||
+					(player.rec.y - player.rec.height / 2 <= Enemies[i].position.y + Enemies[i].size.y / 2 &&
+						player.rec.y + player.rec.height / 2 >= Enemies[i].position.y + Enemies[i].size.y / 2)))
 			{
 				if (Enemies[i].alreadyPoint == false)
 				{
@@ -50,12 +49,12 @@ namespace RlGraJB
 
 	}
 
-	void CheckPoint(Player &player)
+	void CheckPoint()
 	{
 		for (int i = 0; i < TotalEnemies; i++)
 		{
 
-			if (player.position.x - player.size.x / 2 >= Enemies[i].position.x + Enemies[i].size.x / 2)
+			if (player.rec.x - player.rec.width / 2 >= Enemies[i].position.x + Enemies[i].size.x / 2)
 			{
 				if (Enemies[i].alreadyPoint == false)
 				{
@@ -66,26 +65,14 @@ namespace RlGraJB
 		}
 	}
 
-	void Shoot(Player &player)
+	void Shoot()
 	{
-		if (player.bullets >= 1)
+		if (IsKeyPressed(KEY_SPACE))
 		{
-			//UpdateBullet();
-			player.bullets--;
-			/*
 			for (int i = 0; i < MaxBullets; i++)
 			{
-				//bullets[i].Alive = true;
-				if (bullets[i].Alive == true)
-				{
-					//bullets[player.bullets - 1] = InitBullet(player.position.x, player.position.y, 10, 10);
-					//bullets[player.bullets - 1].Alive = true;
-					//player.bullets--;
- 					//MoveBullet();
-					//DrawBullet();
-				}
-			} */
-			
+				bullets[i].Alive = true;
+			}
 		}
 	}
 }

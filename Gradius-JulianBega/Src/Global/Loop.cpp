@@ -16,10 +16,9 @@ namespace RlGraJB
 		InitWindow(screenWidth, screenHeight, "sample game: Gradius");
 		SetTargetFPS(60);
 		HideCursor();
-		Player player1;
 		Enemies[MaxEnemies];
 		int currentScreen = 1;
-		InitGame(player1);
+		InitGame();
 
 		Image tank = LoadImage("../Res/Assets/Tank1.png");
 		ImageResize(&tank, 96 , 61);
@@ -40,7 +39,7 @@ namespace RlGraJB
 				break;
 
 			case GAMEPLAYSCREEN:
-				UpdateGame(player1, tanke, tanke2);
+				UpdateGame(tanke, tanke2);
 				
 				break;
 				
@@ -49,7 +48,7 @@ namespace RlGraJB
 				break;
 
 			case CREDITSSCREEN:
-				UpdateCredits(player1);
+				UpdateCredits();
 				break;
 			
 			case ENDING:

@@ -10,8 +10,8 @@ namespace RlGraJB
 	const int pointsToWin = 2;
 	const int backGroundSpeed = 400;
 
-	void InitGame(Player &player1);
-	void UpdateGame(Player &player1, Texture2D tank, Texture2D tank2);
+	void InitGame();
+	void UpdateGame(Texture2D tank, Texture2D tank2);
 	void UpdateBackGround(int &backGrowndPos, int InitPoint);
 	void UnloadGame();
 

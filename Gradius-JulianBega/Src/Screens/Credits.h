@@ -4,7 +4,7 @@
 
 namespace RlGraJB
 {
-	void UpdateCredits(Player &player);
+	void UpdateCredits();
 }
 
 

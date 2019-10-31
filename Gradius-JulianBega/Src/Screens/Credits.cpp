@@ -5,12 +5,12 @@
 
 namespace RlGraJB
 {
-	void UpdateCredits(Player &player)
+	void UpdateCredits()
 	{
 		DrawCredits();
 		if (IsKeyPressed('M'))
 		{
-			InitGame(player);
+			InitGame();
 			ActualScreen = MENUSCREEN;
 		}
 	}

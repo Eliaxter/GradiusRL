@@ -9,9 +9,9 @@
 
 namespace RlGraJB
 {
-	void InitGame(Player &player1)
+	void InitGame()
 	{
-		player1 = InitPlayer(60, screenHeight * 7 / 8, screenWidth / 20, 30); ///////////// Cambiar a statics como playerwith, etc
+		InitPlayer();
 
 		actualBackGroundPos = 0;
 
@@ -21,23 +21,25 @@ namespace RlGraJB
 			Enemies[0] = InitEnemy(GetRandomValue(screenWidth, screenWidth * 2), screenHeight - 20, 50, 20, GREEN);
 		}
 
-		InitBullet(player1.position.x, player1.position.y, 10, 10, false, false);
+		InitBullet();
 
 	}
 
-	void UpdateGame(Player &player1, Texture2D tank, Texture2D tank2)
+	void UpdateGame(Texture2D tank, Texture2D tank2)
 	{
 		if (!gameOver)
 		{
-			DrawGame(player1, tank, tank2);
-			MovePlayer(player1);
+			MovePlayer();
 			UpdateEnemy();
 			UpdateBackGround(actualBackGroundPos, 0);
 			UpdateBackGround(actualBackGroundPos2, screenWidth);
-			CheckCollisionWithEnemies(player1);
-			CheckPoint(player1);
+			DrawGame(tank, tank2);
+			CheckCollisionWithEnemies();
+			CheckPoint();
+			Shoot();
 			CheckBulletOutOfScreen();
-			for (int i = 0; i < MaxBullets; i++)
+			//UpdateBullet();
+			for (int i = 0;  i < MaxBullets;  i++)
 			{
 				if (bullets[i].Alive == true)
 				{
@@ -45,14 +47,7 @@ namespace RlGraJB
 				}
 			}
 			tankAnimationTimer += GetFrameTime();
-			if (IsKeyPressed(KEY_SPACE))
-			{
-				bullets[player1.bullets].Alive = true;
-				//player1.bullets--;
-				Shoot(player1);
-			}
-
-			if (player1.life <= 0)
+			if (player.life <= 0)
 			{
 				ActualScreen = CREDITSSCREEN;
 
@@ -63,11 +58,10 @@ namespace RlGraJB
 		{
 			if (IsKeyPressed(KEY_ENTER))
 			{
-				InitGame(player1);
+				InitGame();
 				gameOver = false;
 			}
 		}
-		//DrawBullet();
 	}
 
 	void UnloadGame()
