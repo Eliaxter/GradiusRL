@@ -1,6 +1,10 @@
 #include "Bullet.h"
 #include "Draw/Draw.h"
 #include "Objects/Player/Player.h"
+#include "Objects/Enemy/Enemy.h"
+#include "Global/Global.h"
+
+#include "raylib.h"
 
 namespace RlGraJB
 {
@@ -9,6 +13,7 @@ namespace RlGraJB
 
 	const int MaxBullets = 5;
 	Bullet bullets[MaxBullets] = { 0 };
+	Bullet enemyBullets[MaxBullets] = { 0 };
 
 	void InitBullet()
 	{
@@ -22,30 +27,60 @@ namespace RlGraJB
 		}
 	}
 
+	void InitEnemyBullet()
+	{
+		for (int i = 0; i < MaxBullets; i++)
+		{
+			enemyBullets[i].rec.x = enemies[0].rec.x;
+			enemyBullets[i].rec.y = enemies[0].rec.y;
+			enemyBullets[i].rec.width = 10.0f;
+			enemyBullets[i].rec.height = 10.0f;
+			enemyBullets[i].Alive = false;
+		}
+	}
+
 	void MoveBullet()
 	{
 		for (int i = 0; i < MaxBullets; i++)
 		{
 			bullets[i].rec.x += bulletSpeed * GetFrameTime();
-			/*
-			if (bullets[i].Alive == true)
-			{
-				bullets[i].rec.x += bulletSpeed * GetFrameTime();
-			}*/
 		}
 	}
-	 
-	/*void UpdateBullet()
+
+	void MoveBulletDown()
 	{
-		
 		for (int i = 0; i < MaxBullets; i++)
 		{
-			if (bullets[i].Alive == true)
+			bullets[i].rec.y += bulletSpeed * GetFrameTime();
+		}
+	}
+
+	void ActiveBulletEnemy()
+	{
+		if (time / static_cast<int>(GetFPS()) > 10)
+		{
+			for (int i = 0; i < MaxBullets; i++)
 			{
-				DrawBullet();
+				enemyBullets[i].Alive = true;
 			}
 		}
-	}*/
+	}
+
+	void MoveBulletsEnemy()
+	{
+		for (int i = 0; i < MaxBullets; i++)
+		{
+			if (time / static_cast<int>(GetFPS()) > 10)
+			{
+				if (enemyBullets[i].Alive == true)
+				{
+					enemyBullets[i].rec.x += bulletSpeed * GetFrameTime();
+					enemyBullets[i].rec.y -= bulletSpeed * GetFrameTime();
+				}
+			}
+			
+		}
+	}
 
 	void CheckBulletOutOfScreen()
 	{

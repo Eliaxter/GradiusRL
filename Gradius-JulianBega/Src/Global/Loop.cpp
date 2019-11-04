@@ -12,7 +12,6 @@ namespace RlGraJB
 {
 	void StartGame()
 	{
-		
 		InitWindow(screenWidth, screenHeight, "sample game: Gradius");
 		SetTargetFPS(60);
 		HideCursor();
@@ -41,7 +40,7 @@ namespace RlGraJB
 
 			case GAMEPLAYSCREEN:
 				UpdateGame(tanke, tanke2);
-				
+				time++;
 				break;
 				
 			case GAMEOVERSCREEN:

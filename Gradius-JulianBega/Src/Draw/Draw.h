@@ -11,5 +11,6 @@ namespace RlGraJB
 	void DrawMenu(bool play, bool exit);
 	void DrawCredits();
 	void DrawBullet();
+	void DrawBomb();
 }
 #endif

@@ -2,10 +2,10 @@
 #include "Objects/Enemy/Enemy.h"
 #include "Objects/Player/Player.h"
 #include "Objects/Bullets/Bullet.h"
+#include "Objects/Bullets/Bomb.h"
 #include "Draw/Draw.h"
 #include "Global/Global.h"
 #include "Animation/Animations.h"
-
 
 namespace RlGraJB
 {
@@ -22,6 +22,7 @@ namespace RlGraJB
 		}
 
 		InitBullet();
+		InitBomb();
 
 	}
 
@@ -38,12 +39,17 @@ namespace RlGraJB
 			CheckPoint();
 			Shoot();
 			CheckBulletOutOfScreen();
+			CheckBombOutOfScreen();
 			//UpdateBullet();
 			for (int i = 0;  i < MaxBullets;  i++)
 			{
 				if (bullets[i].Alive == true)
 				{
 					MoveBullet();
+				}
+				if (bomb.Alive == true)
+				{
+					MoveBomb();
 				}
 			}
 			tankAnimationTimer += GetFrameTime();
@@ -62,12 +68,6 @@ namespace RlGraJB
 				gameOver = false;
 			}
 		}
-	}
-
-	void UnloadGame()
-	{
-
-		// TODO: Unload all dynamic loaded data (textures, sounds, models...)
 	}
 
 	void UpdateBackGround(int &backGrowndPos, int InitPoint)

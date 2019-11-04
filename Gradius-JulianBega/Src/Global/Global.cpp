@@ -10,4 +10,6 @@ namespace RlGraJB
 	int actualBackGroundPos2 = 0;
 	
 	float tankAnimationTimer = 0.0f;
+
+	int time = 0;
 }

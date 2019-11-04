@@ -18,6 +18,8 @@ namespace RlGraJB
 	static bool pause = false;
 	extern float tankAnimationTimer;
 
+	extern int time;
+
 }
 
 

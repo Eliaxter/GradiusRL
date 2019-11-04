@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Global/Global.h"
 #include "Objects/Bullets/Bullet.h"
+#include "Objects/Bullets/Bomb.h"
 #include "Objects/Enemy/Enemy.h"
 #include "Draw/Draw.h"
 #include "raylib.h"
@@ -46,7 +47,6 @@ namespace RlGraJB
 				}
 			}
 		}
-
 	}
 
 	void CheckPoint()
@@ -73,6 +73,15 @@ namespace RlGraJB
 			{
 				bullets[i].Alive = true;
 			}
+		}
+		if (IsKeyPressed(KEY_RIGHT_SHIFT))
+		{
+			for (int i = 0; i < MaxBullets; i++)
+			{
+				bomb.Alive = true;
+				MoveBomb();
+			}
+			
 		}
 	}
 }

@@ -5,13 +5,12 @@
 #include "Global/Global.h"
 #include "Animation/Animations.h"
 #include "Objects/Bullets/Bullet.h"
+#include "Objects/Bullets/Bomb.h"
 #include <iostream>
 namespace RlGraJB
 {
 	void DrawGame(Texture2D tank, Texture2D tank2)
 	{
-		//BeginDrawing();
-
 		ClearBackground(GRAY);
 
 		if (!gameOver)
@@ -40,6 +39,10 @@ namespace RlGraJB
 				if (bullets[i].Alive == true)
 				{
 					DrawBullet();
+				}
+				if (bomb.Alive == true)
+				{
+					DrawBomb();
 				}
 			}
 			DrawText(TextFormat("Points: %i", player.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
@@ -88,7 +91,6 @@ namespace RlGraJB
 		}
 		for (int i = 0; i < 9; i++)
 		{
-
 			DrawRectangle(GetRandomValue(0, screenWidth), GetRandomValue(0, screenHeight), 3, 2, BROWN);
 		}
 	}
@@ -97,12 +99,10 @@ namespace RlGraJB
 	{
 		ClearBackground(WHITE);
 
-
 		DrawText("Press M to go to menu", screenWidth / 2 - MeasureText("Press M to go to menu", 40) / 2, screenHeight / 2 - 120, 30, BLACK);
 		DrawText("Press Esc to leave the game", screenWidth / 2 - MeasureText("Press Esc to leave the game", 40) / 2, screenHeight / 2 - 40, 30, BLACK);
 		DrawText("Game created by Julian Bega", screenWidth / 2 - MeasureText("Game created by Julian Bega", 40) / 2, screenHeight / 2 + 80, 30, BLACK);
 		DrawText("Tank created by Joaquin Italiano", screenWidth / 2 - MeasureText("Tank created by Joaquin Italiano", 40) / 2, screenHeight / 2 + 120, 30, BLACK);
-
 	}
 	
 	void DrawBullet()
@@ -112,4 +112,10 @@ namespace RlGraJB
 			DrawRectangle(static_cast<int>(bullets[i].rec.x), static_cast<int>(bullets[i].rec.y), static_cast<int>(bullets[i].rec.width), static_cast<int>(bullets[i].rec.height), BLACK);
 		}
 	}
+
+	void DrawBomb()
+	{
+		DrawRectangle(static_cast<int>(bomb.rec.x), static_cast<int>(bomb.rec.y), static_cast<int>(bomb.rec.width), static_cast<int>(bomb.rec.height), BLACK);
+	}
+
 }
