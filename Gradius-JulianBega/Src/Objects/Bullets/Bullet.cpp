@@ -8,9 +8,6 @@
 
 namespace RlGraJB
 {
-
-	static float bulletSpeed = 500.0f;
-
 	const int MaxBullets = 5;
 	Bullet bullets[MaxBullets] = { 0 };
 	Bullet enemyBullets[MaxBullets] = { 0 };
@@ -27,18 +24,6 @@ namespace RlGraJB
 		}
 	}
 
-	void InitEnemyBullet()
-	{
-		for (int i = 0; i < MaxBullets; i++)
-		{
-			enemyBullets[i].rec.x = enemies[0].rec.x;
-			enemyBullets[i].rec.y = enemies[0].rec.y;
-			enemyBullets[i].rec.width = 10.0f;
-			enemyBullets[i].rec.height = 10.0f;
-			enemyBullets[i].Alive = false;
-		}
-	}
-
 	void MoveBullet()
 	{
 		for (int i = 0; i < MaxBullets; i++)
@@ -52,33 +37,6 @@ namespace RlGraJB
 		for (int i = 0; i < MaxBullets; i++)
 		{
 			bullets[i].rec.y += bulletSpeed * GetFrameTime();
-		}
-	}
-
-	void ActiveBulletEnemy()
-	{
-		if (time / static_cast<int>(GetFPS()) > 10)
-		{
-			for (int i = 0; i < MaxBullets; i++)
-			{
-				enemyBullets[i].Alive = true;
-			}
-		}
-	}
-
-	void MoveBulletsEnemy()
-	{
-		for (int i = 0; i < MaxBullets; i++)
-		{
-			if (time / static_cast<int>(GetFPS()) > 10)
-			{
-				if (enemyBullets[i].Alive == true)
-				{
-					enemyBullets[i].rec.x += bulletSpeed * GetFrameTime();
-					enemyBullets[i].rec.y -= bulletSpeed * GetFrameTime();
-				}
-			}
-			
 		}
 	}
 

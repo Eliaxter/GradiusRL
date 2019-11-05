@@ -5,6 +5,7 @@
 #include "Global/Global.h"
 #include "Animation/Animations.h"
 #include "Objects/Bullets/Bullet.h"
+#include "Objects/Bullets/BulletEnemy.h"
 #include "Objects/Bullets/Bomb.h"
 #include <iostream>
 namespace RlGraJB
@@ -43,6 +44,12 @@ namespace RlGraJB
 				if (bomb.Alive == true)
 				{
 					DrawBomb();
+				}
+				if (enemyBullet.Alive == true)
+				{
+
+					DrawBulletEnemy();
+
 				}
 			}
 			DrawText(TextFormat("Points: %i", player.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
@@ -116,6 +123,11 @@ namespace RlGraJB
 	void DrawBomb()
 	{
 		DrawRectangle(static_cast<int>(bomb.rec.x), static_cast<int>(bomb.rec.y), static_cast<int>(bomb.rec.width), static_cast<int>(bomb.rec.height), BLACK);
+	}
+	
+	void DrawBulletEnemy()
+	{
+		DrawRectangle(static_cast<int>(enemyBullet.rec.x), static_cast<int>(enemyBullet.rec.y), static_cast<int>(enemyBullet.rec.width), static_cast<int>(enemyBullet.rec.height), BLACK);
 	}
 
 }

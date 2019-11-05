@@ -1,18 +1,18 @@
 #ifndef BULLETENEMY_H
 #define BULLETENEMY_H
 #include "raylib.h"
-#include "Global/Global.h"
 
 namespace RlGraJB
 {
-	struct Bullet {
+	struct BulletEnemy {
 		Rectangle rec;
 		bool Alive;
 		bool alreadyKill;
 	};
-	extern Bullet enemyBullet;
+	extern BulletEnemy enemyBullet;
 
 	void InitEnemyBullet();
+	void ActiveBulletEnemy();
 	void MoveBulletsEnemy();
 	void CheckBulletEnemyOutOfScreen();
 }

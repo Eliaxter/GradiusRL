@@ -52,6 +52,12 @@
     <ClCompile Include="..\Src\Objects\Bullets\Bullet.cpp">
       <Filter>Objects\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="..\Src\Objects\Bullets\Bomb.cpp">
+      <Filter>Objects\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Objects\Bullets\BulletEnemy.cpp">
+      <Filter>Objects\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Src\Draw\Draw.h">
@@ -79,6 +85,12 @@
       <Filter>Global</Filter>
     </ClInclude>
     <ClInclude Include="..\Src\Objects\Bullets\Bullet.h">
+      <Filter>Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Objects\Bullets\Bomb.h">
+      <Filter>Objects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Objects\Bullets\BulletEnemy.h">
       <Filter>Objects\Bullet</Filter>
     </ClInclude>
   </ItemGroup>

@@ -74,7 +74,7 @@ namespace RlGraJB
 				bullets[i].Alive = true;
 			}
 		}
-		if (IsKeyPressed(KEY_RIGHT_SHIFT))
+		if (IsKeyPressed(KEY_Z))
 		{
 			for (int i = 0; i < MaxBullets; i++)
 			{

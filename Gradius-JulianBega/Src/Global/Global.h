@@ -19,8 +19,7 @@ namespace RlGraJB
 	extern float tankAnimationTimer;
 
 	extern int time;
-
+	extern float bulletSpeed;
 }
-
 
 #endif

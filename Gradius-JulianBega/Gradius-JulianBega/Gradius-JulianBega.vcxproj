@@ -22,7 +22,9 @@
     <ClCompile Include="..\Src\Draw\Draw.cpp" />
     <ClCompile Include="..\Src\Global\Global.cpp" />
     <ClCompile Include="..\Src\Global\Loop.cpp" />
+    <ClCompile Include="..\Src\Objects\Bullets\Bomb.cpp" />
     <ClCompile Include="..\Src\Objects\Bullets\Bullet.cpp" />
+    <ClCompile Include="..\Src\Objects\Bullets\BulletEnemy.cpp" />
     <ClCompile Include="..\Src\Objects\Enemy\Enemy.cpp" />
     <ClCompile Include="..\Src\Objects\Player\Player.cpp" />
     <ClCompile Include="..\Src\Screens\Credits.cpp" />
@@ -34,7 +36,9 @@
     <ClInclude Include="..\Src\Draw\Draw.h" />
     <ClInclude Include="..\Src\Global\Global.h" />
     <ClInclude Include="..\Src\Global\Loop.h" />
+    <ClInclude Include="..\Src\Objects\Bullets\Bomb.h" />
     <ClInclude Include="..\Src\Objects\Bullets\Bullet.h" />
+    <ClInclude Include="..\Src\Objects\Bullets\BulletEnemy.h" />
     <ClInclude Include="..\Src\Objects\Enemy\Enemy.h" />
     <ClInclude Include="..\Src\Objects\Player\Player.h" />
     <ClInclude Include="..\Src\Screens\Credits.h" />

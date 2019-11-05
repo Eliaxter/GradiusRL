@@ -2,6 +2,7 @@
 #include "Objects/Enemy/Enemy.h"
 #include "Objects/Player/Player.h"
 #include "Objects/Bullets/Bullet.h"
+#include "Objects/Bullets/BulletEnemy.h"
 #include "Objects/Bullets/Bomb.h"
 #include "Draw/Draw.h"
 #include "Global/Global.h"
@@ -23,6 +24,7 @@ namespace RlGraJB
 
 		InitBullet();
 		InitBomb();
+		InitEnemyBullet();
 
 	}
 
@@ -40,7 +42,8 @@ namespace RlGraJB
 			Shoot();
 			CheckBulletOutOfScreen();
 			CheckBombOutOfScreen();
-			//UpdateBullet();
+			ActiveBulletEnemy();
+			CheckBulletEnemyOutOfScreen();
 			for (int i = 0;  i < MaxBullets;  i++)
 			{
 				if (bullets[i].Alive == true)
@@ -51,12 +54,15 @@ namespace RlGraJB
 				{
 					MoveBomb();
 				}
+				if (enemyBullet.Alive == true)
+				{
+					MoveBulletsEnemy();
+				}
 			}
 			tankAnimationTimer += GetFrameTime();
 			if (player.life <= 0)
 			{
 				ActualScreen = CREDITSSCREEN;
-
 			}
 
 		}

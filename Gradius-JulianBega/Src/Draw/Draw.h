@@ -12,5 +12,6 @@ namespace RlGraJB
 	void DrawCredits();
 	void DrawBullet();
 	void DrawBomb();
+	void DrawBulletEnemy();
 }
 #endif

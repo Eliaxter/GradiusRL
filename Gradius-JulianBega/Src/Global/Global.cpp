@@ -12,4 +12,6 @@ namespace RlGraJB
 	float tankAnimationTimer = 0.0f;
 
 	int time = 0;
+
+	float bulletSpeed = 500.0f;
 }
