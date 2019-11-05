@@ -8,4 +8,4 @@
 
 <p>Game developed by:</p>
 <p>Julian Bega</p>
-<p>You can get the original game </p><a href="https://github.com/julianbega/GradiusRL">here</a>
+<p>You can get the original game</p><a href="https://github.com/julianbega/GradiusRL">here</a>
