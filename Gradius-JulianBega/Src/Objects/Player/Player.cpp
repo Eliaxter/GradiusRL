@@ -4,6 +4,7 @@
 #include "Objects/Bullets/Bomb.h"
 #include "Objects/Enemy/Enemy.h"
 #include "Draw/Draw.h"
+#include "Screens/GamePlay.h"
 #include "raylib.h"
 
 namespace RlGraJB
@@ -44,6 +45,8 @@ namespace RlGraJB
 					enemies[i].alreadyPoint = true;
 					enemies[i].EnColor = BLUE;
 					player.life--;
+					enemies[i].rec.x = -500.0f;
+					enemies[i].rec.y = -500.0f;
 				}
 			}
 		}
@@ -69,19 +72,12 @@ namespace RlGraJB
 	{
 		if (IsKeyPressed(KEY_SPACE))
 		{
-			for (int i = 0; i < MaxBullets; i++)
-			{
-				bullets[i].Alive = true;
-			}
+			bullets.Alive = true;
 		}
 		if (IsKeyPressed(KEY_Z))
 		{
-			for (int i = 0; i < MaxBullets; i++)
-			{
-				bomb.Alive = true;
-				MoveBomb();
-			}
-			
+			bomb.Alive = true;
+			MoveBomb();
 		}
 	}
 }

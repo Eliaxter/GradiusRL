@@ -16,8 +16,8 @@ namespace RlGraJB
 
 		if (!gameOver)
 		{
-			DrawRectangle(player.rec.x, player.rec.y + player.rec.height/(2/5) , player.rec.width, player.rec.height, BLUE);
-			
+			DrawRectangle(player.rec.x, player.rec.y + player.rec.height / (2 / 5), player.rec.width, player.rec.height, BLUE);
+
 			for (int i = 0; i < MaxEnemies; i++)
 			{
 				DrawRectangle(enemies[i].rec.x - enemies[i].rec.width / 2, enemies[i].rec.y - enemies[i].rec.height / 2, enemies[i].rec.width, enemies[i].rec.height, enemies[i].EnColor);
@@ -25,7 +25,7 @@ namespace RlGraJB
 			if (tankAnimationTimer <= 1)
 			{
 				DrawTexture(tank, player.rec.x - player.rec.width / 2, player.rec.y - player.rec.height, WHITE);
-				
+
 			}
 			if (tankAnimationTimer >= 1)
 			{
@@ -35,33 +35,30 @@ namespace RlGraJB
 					tankAnimationTimer = 0;
 				}
 			}
-			for (int i = 0; i < MaxBullets; i++)
+			if (bullets.Alive == true)
 			{
-				if (bullets[i].Alive == true)
-				{
-					DrawBullet();
-				}
-				if (bomb.Alive == true)
-				{
-					DrawBomb();
-				}
-				if (enemyBullet.Alive == true)
-				{
+				DrawBullet();
+			}
+			if (bomb.Alive == true)
+			{
+				DrawBomb();
+			}
+			if (enemyBullet.Alive == true)
+			{
 
-					DrawBulletEnemy();
+				DrawBulletEnemy();
 
-				}
 			}
 			DrawText(TextFormat("Points: %i", player.points), MeasureText("Points: %i", 40) / 2, 0 + 30, 20, WHITE);
 			DrawText(TextFormat("Lifes: %i", player.life), MeasureText("Lifes: %i", 40) * 2, 0 + 30, 20, WHITE);
 			DrawText(TextFormat("Bullets: %i", player.bullets), MeasureText("Bullets: %i", 40) * 3, 0 + 30, 20, WHITE);
-			
+
 			if (pause) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 		}
 		else DrawText("PRESS [ENTER] TO PLAY AGAIN", screenWidth / 2 - MeasureText("PRESS [ENTER] TO PLAY AGAIN", 20) / 2, screenHeight / 2 - 50, 20, GRAY);
 	}
 
-	
+
 
 	void DrawMenu(bool play, bool exit)
 	{
@@ -71,13 +68,13 @@ namespace RlGraJB
 		{
 			DrawText("PLAY", screenWidth / 2 - MeasureText("PLAY", 40) / 2, screenHeight / 2 - 40, 40, YELLOW);
 			DrawText("EXIT", screenWidth / 2 - MeasureText("PLAY", 40) / 2, screenHeight / 2 + 40, 40, GRAY);
-		}	
+		}
 		else if (exit)
 		{
 			DrawText("PLAY", screenWidth / 2 - MeasureText("PLAY", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 			DrawText("EXIT", screenWidth / 2 - MeasureText("PLAY", 40) / 2, screenHeight / 2 + 40, 40, YELLOW);
 		}
-		else 
+		else
 		{
 			DrawText("PLAY", screenWidth / 2 - MeasureText("PLAY", 40) / 2, screenHeight / 2 - 40, 40, GRAY);
 			DrawText("EXIT", screenWidth / 2 - MeasureText("PLAY", 40) / 2, screenHeight / 2 + 40, 40, GRAY);
@@ -86,7 +83,7 @@ namespace RlGraJB
 
 	void BackGroundDraw(int InitPoint)
 	{
-		DrawRectangle(0, 0, screenWidth, screenHeight/6, BROWN);
+		DrawRectangle(0, 0, screenWidth, screenHeight / 6, BROWN);
 		DrawRectangle(0, screenHeight - screenHeight / 6, screenWidth, screenHeight / 6, BROWN);
 		for (int i = 0; i < TotalEnemies; i++)
 		{
@@ -111,20 +108,19 @@ namespace RlGraJB
 		DrawText("Game created by Julian Bega", screenWidth / 2 - MeasureText("Game created by Julian Bega", 40) / 2, screenHeight / 2 + 80, 30, BLACK);
 		DrawText("Tank created by Joaquin Italiano", screenWidth / 2 - MeasureText("Tank created by Joaquin Italiano", 40) / 2, screenHeight / 2 + 120, 30, BLACK);
 	}
-	
+
 	void DrawBullet()
 	{
-		for (int i = 0; i < MaxBullets; i++)
-		{
-			DrawRectangle(static_cast<int>(bullets[i].rec.x), static_cast<int>(bullets[i].rec.y), static_cast<int>(bullets[i].rec.width), static_cast<int>(bullets[i].rec.height), BLACK);
-		}
+
+		DrawRectangle(static_cast<int>(bullets.rec.x), static_cast<int>(bullets.rec.y), static_cast<int>(bullets.rec.width), static_cast<int>(bullets.rec.height), BLACK);
+
 	}
 
 	void DrawBomb()
 	{
 		DrawRectangle(static_cast<int>(bomb.rec.x), static_cast<int>(bomb.rec.y), static_cast<int>(bomb.rec.width), static_cast<int>(bomb.rec.height), BLACK);
 	}
-	
+
 	void DrawBulletEnemy()
 	{
 		DrawRectangle(static_cast<int>(enemyBullet.rec.x), static_cast<int>(enemyBullet.rec.y), static_cast<int>(enemyBullet.rec.width), static_cast<int>(enemyBullet.rec.height), BLACK);

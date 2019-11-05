@@ -10,11 +10,11 @@ namespace RlGraJB
 		bool Alive;
 		bool alreadyKill;
 	};
-	extern const int MaxBullets;
-	extern Bullet bullets[5];
+	extern Bullet bullets;
 
 	void InitBullet();
 	void MoveBullet();
 	void CheckBulletOutOfScreen();
+	void CollisionBulletEnemy();
 }
 #endif

@@ -16,10 +16,9 @@ namespace RlGraJB
 
 		actualBackGroundPos = 0;
 
-		for (int i = 1; i < MaxEnemies ; i++)
+		for (int i = 1; i < MaxEnemies; i++)
 		{
 			InitEnemy();
-			//enemies[0] = InitEnemy(GetRandomValue(screenWidth, screenWidth * 2), screenHeight - 20, 50, 20, GREEN);
 		}
 
 		InitBullet();
@@ -44,27 +43,25 @@ namespace RlGraJB
 			CheckBombOutOfScreen();
 			ActiveBulletEnemy();
 			CheckBulletEnemyOutOfScreen();
-			for (int i = 0;  i < MaxBullets;  i++)
+			CollisionBulletEnemy();
+			CollisionBombEnemy();
+			if (bullets.Alive == true)
 			{
-				if (bullets[i].Alive == true)
-				{
-					MoveBullet();
-				}
-				if (bomb.Alive == true)
-				{
-					MoveBomb();
-				}
-				if (enemyBullet.Alive == true)
-				{
-					MoveBulletsEnemy();
-				}
+				MoveBullet();
+			}
+			if (bomb.Alive == true)
+			{
+				MoveBomb();
+			}
+			if (enemyBullet.Alive == true)
+			{
+				MoveBulletsEnemy();
 			}
 			tankAnimationTimer += GetFrameTime();
 			if (player.life <= 0)
 			{
 				ActualScreen = CREDITSSCREEN;
 			}
-
 		}
 		else
 		{

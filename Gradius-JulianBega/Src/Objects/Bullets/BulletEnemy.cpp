@@ -10,11 +10,15 @@ namespace RlGraJB
 
 	void InitEnemyBullet() 
 	{
-		enemyBullet.rec.x = enemies[0].rec.x;
-		enemyBullet.rec.y = enemies[0].rec.y;
-		enemyBullet.rec.width = 20.0f;
-		enemyBullet.rec.height = 20.0f;
-		enemyBullet.Alive = false;
+		for (int i = 1; i < MaxEnemies; i++)
+		{
+			enemyBullet.rec.x = enemies[0].rec.x;
+			enemyBullet.rec.y = enemies[0].rec.y;
+			enemyBullet.rec.width = 20.0f;
+			enemyBullet.rec.height = 20.0f;
+			enemyBullet.Alive = false;
+		}
+		
 	}
 
 	void ActiveBulletEnemy()

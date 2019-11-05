@@ -4,13 +4,13 @@
 
 #include "raylib.h"
 
-namespace RlGraJB 
+namespace RlGraJB
 {
 	Bomb bomb;
 
-	static float speedBomb = 200.0f;
+	static float speedBomb = 100.0f;
 
-	void InitBomb() 
+	void InitBomb()
 	{
 		bomb.rec.x = player.rec.x;
 		bomb.rec.y = player.rec.y;
@@ -24,7 +24,7 @@ namespace RlGraJB
 		bomb.rec.y += speedBomb * GetFrameTime();
 	}
 
-	void CheckBombOutOfScreen() 
+	void CheckBombOutOfScreen()
 	{
 		if (bomb.Alive == true)
 		{
@@ -33,5 +33,15 @@ namespace RlGraJB
 				InitBomb();
 			}
 		}
+	}
+
+	void CollisionBombEnemy()
+	{
+		if (CheckCollisionRecs(bomb.rec, enemies[0].rec))
+		{
+			enemies[0].rec.x = -500.0f;
+			enemies[0].rec.y = -500.0f;
+		}
+
 	}
 }

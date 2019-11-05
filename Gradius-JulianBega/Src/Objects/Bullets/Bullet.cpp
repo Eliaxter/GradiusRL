@@ -8,49 +8,48 @@
 
 namespace RlGraJB
 {
-	const int MaxBullets = 5;
-	Bullet bullets[MaxBullets] = { 0 };
-	Bullet enemyBullets[MaxBullets] = { 0 };
+	Bullet bullets;
 
 	void InitBullet()
 	{
-		for (int i = 0; i < MaxBullets; i++)
-		{
-			bullets[i].rec.x = player.rec.x;
-			bullets[i].rec.y = player.rec.y;
-			bullets[i].rec.width= 10.0f;
-			bullets[i].rec.height = 10.0f;
-			bullets[i].Alive = false;
-		}
+		bullets.rec.x = player.rec.x;
+		bullets.rec.y = player.rec.y;
+		bullets.rec.width= 10.0f;
+		bullets.rec.height = 10.0f;
+		bullets.Alive = false;
 	}
 
 	void MoveBullet()
 	{
-		for (int i = 0; i < MaxBullets; i++)
-		{
-			bullets[i].rec.x += bulletSpeed * GetFrameTime();
-		}
+		bullets.rec.x += bulletSpeed * GetFrameTime();
 	}
 
 	void MoveBulletDown()
 	{
-		for (int i = 0; i < MaxBullets; i++)
-		{
-			bullets[i].rec.y += bulletSpeed * GetFrameTime();
-		}
+		bullets.rec.y += bulletSpeed * GetFrameTime();
 	}
 
 	void CheckBulletOutOfScreen()
 	{
-		for (int i = 0; i < MaxBullets; i++)
+		if (bullets.Alive == true)
 		{
-			if (bullets[i].Alive == true)
+			if (bullets.rec.x >= screenWidth)
 			{
-				if (bullets[i].rec.x >= screenWidth)
-				{
-					InitBullet();
-				}
+				InitBullet();
 			}
 		}
+	}
+
+	void CollisionBulletEnemy()
+	{
+		for (int i = 0; i < MaxEnemies; i++)
+		{
+			if (CheckCollisionRecs(bullets.rec, enemies[i].rec))
+			{
+				enemies[i].rec.x = -500.0f;
+				enemies[i].rec.y = -500.0f;
+			}
+		}
+		
 	}
 }

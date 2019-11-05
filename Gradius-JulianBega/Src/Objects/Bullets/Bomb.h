@@ -15,5 +15,6 @@ namespace RlGraJB
 	void InitBomb();
 	void MoveBomb();
 	void CheckBombOutOfScreen();
+	void CollisionBombEnemy();
 }
 #endif
