@@ -8,5 +8,5 @@
 
 <p>Game developed by:</p>
 <p>Julian Bega</p>
-<p>You can get the original game</p><a href="https://github.com/julianbega/GradiusRL">here</a>
+<p>You can get the original game <a href="https://github.com/julianbega/GradiusRL">here</a></p>
 <p>Game creator mail: <a href="mailto:julian.begamilrad@gmail.com">julian.begamilrad@gmail.com</a></p>
